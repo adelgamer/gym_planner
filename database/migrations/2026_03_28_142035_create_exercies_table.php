@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('force', ['pull', 'push', 'static'])->nullable();
             $table->enum('level', ['beginner', 'intermediate', 'expert'])->nullable();
             $table->enum('mechanic', ['compound', 'isolation'])->nullable();
+            $table->integer('popularity')->nullable(); // 0 -> 10
 
             $table->foreignId('category_id')
                 ->nullable()

@@ -128,6 +128,7 @@ class PrepareDB extends Command
                 'force' => $exercice->force,
                 'level' => $exercice->level,
                 'mechanic' => $exercice->mechanic,
+                'popularity' => $exercice->popularity,
                 'category_id' => Category::where('name', $exercice->category)->value('id'),
                 'equipment_id' => Equipment::where('name', $exercice->equipment)->value('id'),
             ]);

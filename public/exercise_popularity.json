@@ -1,0 +1,3494 @@
+[
+    {
+        "id": "3_4_sit-up",
+        "popularity": 9
+    },
+    {
+        "id": "ab_crunch_machine",
+        "popularity": 9
+    },
+    {
+        "id": "ab_roller",
+        "popularity": 1
+    },
+    {
+        "id": "advanced_kettlebell_windmill",
+        "popularity": 7
+    },
+    {
+        "id": "air_bike",
+        "popularity": 1
+    },
+    {
+        "id": "alternate_hammer_curl",
+        "popularity": 9
+    },
+    {
+        "id": "alternate_heel_touchers",
+        "popularity": 1
+    },
+    {
+        "id": "alternate_incline_dumbbell_curl",
+        "popularity": 5
+    },
+    {
+        "id": "alternating_cable_shoulder_press",
+        "popularity": 9
+    },
+    {
+        "id": "alternating_deltoid_raise",
+        "popularity": 1
+    },
+    {
+        "id": "alternating_floor_press",
+        "popularity": 1
+    },
+    {
+        "id": "alternating_hang_clean",
+        "popularity": 1
+    },
+    {
+        "id": "alternating_kettlebell_press",
+        "popularity": 7
+    },
+    {
+        "id": "alternating_kettlebell_row",
+        "popularity": 9
+    },
+    {
+        "id": "alternating_renegade_row",
+        "popularity": 9
+    },
+    {
+        "id": "anti-gravity_press",
+        "popularity": 1
+    },
+    {
+        "id": "arnold_dumbbell_press",
+        "popularity": 9
+    },
+    {
+        "id": "around_the_worlds",
+        "popularity": 1
+    },
+    {
+        "id": "back_flyes_-_with_bands",
+        "popularity": 8
+    },
+    {
+        "id": "balance_board",
+        "popularity": 1
+    },
+    {
+        "id": "ball_leg_curl",
+        "popularity": 8
+    },
+    {
+        "id": "band_assisted_pull-up",
+        "popularity": 10
+    },
+    {
+        "id": "band_hip_adductions",
+        "popularity": 4
+    },
+    {
+        "id": "band_pull_apart",
+        "popularity": 4
+    },
+    {
+        "id": "band_skull_crusher",
+        "popularity": 4
+    },
+    {
+        "id": "barbell_ab_rollout",
+        "popularity": 1
+    },
+    {
+        "id": "barbell_ab_rollout_-_on_knees",
+        "popularity": 2
+    },
+    {
+        "id": "barbell_bench_press_-_medium_grip",
+        "popularity": 10
+    },
+    {
+        "id": "barbell_curl",
+        "popularity": 1
+    },
+    {
+        "id": "barbell_curls_lying_against_an_incline",
+        "popularity": 5
+    },
+    {
+        "id": "barbell_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "barbell_full_squat",
+        "popularity": 10
+    },
+    {
+        "id": "barbell_guillotine_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "barbell_hack_squat",
+        "popularity": 10
+    },
+    {
+        "id": "barbell_incline_bench_press_-_medium_grip",
+        "popularity": 10
+    },
+    {
+        "id": "barbell_incline_shoulder_raise",
+        "popularity": 5
+    },
+    {
+        "id": "barbell_lunge",
+        "popularity": 1
+    },
+    {
+        "id": "barbell_rear_delt_row",
+        "popularity": 9
+    },
+    {
+        "id": "barbell_rollout_from_bench",
+        "popularity": 2
+    },
+    {
+        "id": "barbell_seated_calf_raise",
+        "popularity": 9
+    },
+    {
+        "id": "barbell_shoulder_press",
+        "popularity": 9
+    },
+    {
+        "id": "barbell_shrug",
+        "popularity": 8
+    },
+    {
+        "id": "barbell_shrug_behind_the_back",
+        "popularity": 8
+    },
+    {
+        "id": "barbell_side_bend",
+        "popularity": 1
+    },
+    {
+        "id": "barbell_side_split_squat",
+        "popularity": 10
+    },
+    {
+        "id": "barbell_squat",
+        "popularity": 10
+    },
+    {
+        "id": "barbell_squat_to_a_bench",
+        "popularity": 10
+    },
+    {
+        "id": "barbell_step_ups",
+        "popularity": 1
+    },
+    {
+        "id": "barbell_walking_lunge",
+        "popularity": 1
+    },
+    {
+        "id": "battling_ropes",
+        "popularity": 1
+    },
+    {
+        "id": "bench_dips",
+        "popularity": 8
+    },
+    {
+        "id": "bench_press_-_with_bands",
+        "popularity": 10
+    },
+    {
+        "id": "bent_over_barbell_row",
+        "popularity": 9
+    },
+    {
+        "id": "bent_over_dumbbell_rear_delt_raise_with_head_on_bench",
+        "popularity": 2
+    },
+    {
+        "id": "bent_over_low-pulley_side_lateral",
+        "popularity": 2
+    },
+    {
+        "id": "bent_over_one-arm_long_bar_row",
+        "popularity": 9
+    },
+    {
+        "id": "bent_over_two-arm_long_bar_row",
+        "popularity": 9
+    },
+    {
+        "id": "bent_over_two-dumbbell_row",
+        "popularity": 9
+    },
+    {
+        "id": "bent_over_two-dumbbell_row_with_palms_in",
+        "popularity": 9
+    },
+    {
+        "id": "bent_press",
+        "popularity": 1
+    },
+    {
+        "id": "bent-arm_barbell_pullover",
+        "popularity": 1
+    },
+    {
+        "id": "bent-arm_dumbbell_pullover",
+        "popularity": 2
+    },
+    {
+        "id": "bent-knee_hip_raise",
+        "popularity": 1
+    },
+    {
+        "id": "body_tricep_press",
+        "popularity": 1
+    },
+    {
+        "id": "body-up",
+        "popularity": 1
+    },
+    {
+        "id": "bodyweight_flyes",
+        "popularity": 8
+    },
+    {
+        "id": "bodyweight_mid_row",
+        "popularity": 9
+    },
+    {
+        "id": "bodyweight_squat",
+        "popularity": 10
+    },
+    {
+        "id": "bodyweight_walking_lunge",
+        "popularity": 1
+    },
+    {
+        "id": "bosu_ball_cable_crunch_with_side_bends",
+        "popularity": 9
+    },
+    {
+        "id": "bottoms_up",
+        "popularity": 1
+    },
+    {
+        "id": "bottoms-up_clean_from_the_hang_position",
+        "popularity": 2
+    },
+    {
+        "id": "box_squat_with_chains",
+        "popularity": 10
+    },
+    {
+        "id": "bradford_rocky_presses",
+        "popularity": 1
+    },
+    {
+        "id": "butt_lift_bridge",
+        "popularity": 1
+    },
+    {
+        "id": "butt-ups",
+        "popularity": 1
+    },
+    {
+        "id": "butterfly",
+        "popularity": 8
+    },
+    {
+        "id": "cable_chest_press",
+        "popularity": 6
+    },
+    {
+        "id": "cable_crossover",
+        "popularity": 6
+    },
+    {
+        "id": "cable_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "cable_deadlifts",
+        "popularity": 10
+    },
+    {
+        "id": "cable_hammer_curls_-_rope_attachment",
+        "popularity": 9
+    },
+    {
+        "id": "cable_hip_adduction",
+        "popularity": 6
+    },
+    {
+        "id": "cable_incline_pushdown",
+        "popularity": 6
+    },
+    {
+        "id": "cable_incline_triceps_extension",
+        "popularity": 6
+    },
+    {
+        "id": "cable_internal_rotation",
+        "popularity": 6
+    },
+    {
+        "id": "cable_iron_cross",
+        "popularity": 6
+    },
+    {
+        "id": "cable_judo_flip",
+        "popularity": 6
+    },
+    {
+        "id": "cable_lying_triceps_extension",
+        "popularity": 6
+    },
+    {
+        "id": "cable_one_arm_tricep_extension",
+        "popularity": 9
+    },
+    {
+        "id": "cable_preacher_curl",
+        "popularity": 6
+    },
+    {
+        "id": "cable_rear_delt_fly",
+        "popularity": 8
+    },
+    {
+        "id": "cable_reverse_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "cable_rope_overhead_triceps_extension",
+        "popularity": 6
+    },
+    {
+        "id": "cable_rope_rear-delt_rows",
+        "popularity": 9
+    },
+    {
+        "id": "cable_russian_twists",
+        "popularity": 6
+    },
+    {
+        "id": "cable_seated_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "cable_seated_lateral_raise",
+        "popularity": 8
+    },
+    {
+        "id": "cable_shoulder_press",
+        "popularity": 9
+    },
+    {
+        "id": "cable_shrugs",
+        "popularity": 8
+    },
+    {
+        "id": "cable_wrist_curl",
+        "popularity": 6
+    },
+    {
+        "id": "calf_press",
+        "popularity": 1
+    },
+    {
+        "id": "calf_press_on_the_leg_press_machine",
+        "popularity": 9
+    },
+    {
+        "id": "calf_raise_on_a_dumbbell",
+        "popularity": 9
+    },
+    {
+        "id": "calf_raises_-_with_bands",
+        "popularity": 9
+    },
+    {
+        "id": "calf-machine_shoulder_shrug",
+        "popularity": 8
+    },
+    {
+        "id": "car_drivers",
+        "popularity": 1
+    },
+    {
+        "id": "chair_squat",
+        "popularity": 10
+    },
+    {
+        "id": "chin-up",
+        "popularity": 1
+    },
+    {
+        "id": "clean_and_press",
+        "popularity": 1
+    },
+    {
+        "id": "clock_push-up",
+        "popularity": 10
+    },
+    {
+        "id": "close-grip_barbell_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "close-grip_dumbbell_press",
+        "popularity": 9
+    },
+    {
+        "id": "close-grip_ez_bar_curl",
+        "popularity": 1
+    },
+    {
+        "id": "close-grip_ez-bar_curl_with_band",
+        "popularity": 4
+    },
+    {
+        "id": "close-grip_ez-bar_press",
+        "popularity": 1
+    },
+    {
+        "id": "close-grip_front_lat_pulldown",
+        "popularity": 2
+    },
+    {
+        "id": "close-grip_push-up_off_of_a_dumbbell",
+        "popularity": 10
+    },
+    {
+        "id": "close-grip_standing_barbell_curl",
+        "popularity": 5
+    },
+    {
+        "id": "cocoons",
+        "popularity": 1
+    },
+    {
+        "id": "concentration_curls",
+        "popularity": 1
+    },
+    {
+        "id": "cross_body_hammer_curl",
+        "popularity": 9
+    },
+    {
+        "id": "cross_over_-_with_bands",
+        "popularity": 4
+    },
+    {
+        "id": "cross-body_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "crunch_-_hands_overhead",
+        "popularity": 9
+    },
+    {
+        "id": "crunch_-_legs_on_exercise_ball",
+        "popularity": 9
+    },
+    {
+        "id": "crunches",
+        "popularity": 9
+    },
+    {
+        "id": "cuban_press",
+        "popularity": 1
+    },
+    {
+        "id": "dead_bug",
+        "popularity": 1
+    },
+    {
+        "id": "decline_barbell_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "decline_close-grip_bench_to_skull_crusher",
+        "popularity": 5
+    },
+    {
+        "id": "decline_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "decline_dumbbell_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "decline_dumbbell_flyes",
+        "popularity": 8
+    },
+    {
+        "id": "decline_dumbbell_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "decline_ez_bar_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "decline_oblique_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "decline_push-up",
+        "popularity": 10
+    },
+    {
+        "id": "decline_reverse_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "decline_smith_press",
+        "popularity": 5
+    },
+    {
+        "id": "dip_machine",
+        "popularity": 8
+    },
+    {
+        "id": "dips_-_chest_version",
+        "popularity": 8
+    },
+    {
+        "id": "dips_-_triceps_version",
+        "popularity": 8
+    },
+    {
+        "id": "donkey_calf_raises",
+        "popularity": 9
+    },
+    {
+        "id": "double_kettlebell_alternating_hang_clean",
+        "popularity": 7
+    },
+    {
+        "id": "double_kettlebell_jerk",
+        "popularity": 7
+    },
+    {
+        "id": "double_kettlebell_push_press",
+        "popularity": 7
+    },
+    {
+        "id": "double_kettlebell_snatch",
+        "popularity": 7
+    },
+    {
+        "id": "double_kettlebell_windmill",
+        "popularity": 7
+    },
+    {
+        "id": "downward_facing_balance",
+        "popularity": 1
+    },
+    {
+        "id": "drag_curl",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_alternate_bicep_curl",
+        "popularity": 10
+    },
+    {
+        "id": "dumbbell_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "dumbbell_bench_press_with_neutral_grip",
+        "popularity": 10
+    },
+    {
+        "id": "dumbbell_bicep_curl",
+        "popularity": 10
+    },
+    {
+        "id": "dumbbell_clean",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_flyes",
+        "popularity": 8
+    },
+    {
+        "id": "dumbbell_incline_row",
+        "popularity": 9
+    },
+    {
+        "id": "dumbbell_incline_shoulder_raise",
+        "popularity": 5
+    },
+    {
+        "id": "dumbbell_lunges",
+        "popularity": 10
+    },
+    {
+        "id": "dumbbell_lying_one-arm_rear_lateral_raise",
+        "popularity": 8
+    },
+    {
+        "id": "dumbbell_lying_pronation",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_lying_rear_lateral_raise",
+        "popularity": 8
+    },
+    {
+        "id": "dumbbell_lying_supination",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_one-arm_shoulder_press",
+        "popularity": 9
+    },
+    {
+        "id": "dumbbell_one-arm_triceps_extension",
+        "popularity": 2
+    },
+    {
+        "id": "dumbbell_one-arm_upright_row",
+        "popularity": 9
+    },
+    {
+        "id": "dumbbell_prone_incline_curl",
+        "popularity": 5
+    },
+    {
+        "id": "dumbbell_raise",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_rear_lunge",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_scaption",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_seated_one-leg_calf_raise",
+        "popularity": 9
+    },
+    {
+        "id": "dumbbell_shoulder_press",
+        "popularity": 9
+    },
+    {
+        "id": "dumbbell_shrug",
+        "popularity": 8
+    },
+    {
+        "id": "dumbbell_side_bend",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_squat",
+        "popularity": 10
+    },
+    {
+        "id": "dumbbell_squat_to_a_bench",
+        "popularity": 10
+    },
+    {
+        "id": "dumbbell_step_ups",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_tricep_extension_-pronated_grip",
+        "popularity": 9
+    },
+    {
+        "id": "elbow_to_knee",
+        "popularity": 1
+    },
+    {
+        "id": "elevated_back_lunge",
+        "popularity": 1
+    },
+    {
+        "id": "elevated_cable_rows",
+        "popularity": 9
+    },
+    {
+        "id": "exercise_ball_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "exercise_ball_pull-in",
+        "popularity": 1
+    },
+    {
+        "id": "extended_range_one-arm_kettlebell_floor_press",
+        "popularity": 7
+    },
+    {
+        "id": "external_rotation",
+        "popularity": 1
+    },
+    {
+        "id": "external_rotation_with_band",
+        "popularity": 4
+    },
+    {
+        "id": "external_rotation_with_cable",
+        "popularity": 6
+    },
+    {
+        "id": "ez-bar_curl",
+        "popularity": 1
+    },
+    {
+        "id": "ez-bar_skullcrusher",
+        "popularity": 1
+    },
+    {
+        "id": "face_pull",
+        "popularity": 8
+    },
+    {
+        "id": "finger_curls",
+        "popularity": 1
+    },
+    {
+        "id": "flat_bench_cable_flyes",
+        "popularity": 8
+    },
+    {
+        "id": "flat_bench_leg_pull-in",
+        "popularity": 1
+    },
+    {
+        "id": "flat_bench_lying_leg_raise",
+        "popularity": 2
+    },
+    {
+        "id": "flexor_incline_dumbbell_curls",
+        "popularity": 5
+    },
+    {
+        "id": "floor_glute-ham_raise",
+        "popularity": 1
+    },
+    {
+        "id": "flutter_kicks",
+        "popularity": 1
+    },
+    {
+        "id": "freehand_jump_squat",
+        "popularity": 10
+    },
+    {
+        "id": "frog_sit-ups",
+        "popularity": 9
+    },
+    {
+        "id": "front_barbell_squat",
+        "popularity": 10
+    },
+    {
+        "id": "front_barbell_squat_to_a_bench",
+        "popularity": 10
+    },
+    {
+        "id": "front_cable_raise",
+        "popularity": 6
+    },
+    {
+        "id": "front_dumbbell_raise",
+        "popularity": 1
+    },
+    {
+        "id": "front_incline_dumbbell_raise",
+        "popularity": 5
+    },
+    {
+        "id": "front_plate_raise",
+        "popularity": 1
+    },
+    {
+        "id": "front_raise_and_pullover",
+        "popularity": 8
+    },
+    {
+        "id": "front_squat_clean_grip",
+        "popularity": 10
+    },
+    {
+        "id": "front_squats_with_two_kettlebells",
+        "popularity": 10
+    },
+    {
+        "id": "front_two-dumbbell_raise",
+        "popularity": 1
+    },
+    {
+        "id": "full_range-of-motion_lat_pulldown",
+        "popularity": 2
+    },
+    {
+        "id": "gironda_sternum_chins",
+        "popularity": 1
+    },
+    {
+        "id": "glute_kickback",
+        "popularity": 1
+    },
+    {
+        "id": "goblet_squat",
+        "popularity": 10
+    },
+    {
+        "id": "gorilla_chin_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "hack_squat",
+        "popularity": 10
+    },
+    {
+        "id": "hammer_curls",
+        "popularity": 9
+    },
+    {
+        "id": "hammer_grip_incline_db_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "handstand_push-ups",
+        "popularity": 10
+    },
+    {
+        "id": "hanging_leg_raise",
+        "popularity": 1
+    },
+    {
+        "id": "hanging_pike",
+        "popularity": 1
+    },
+    {
+        "id": "high_cable_curls",
+        "popularity": 6
+    },
+    {
+        "id": "hip_extension_with_bands",
+        "popularity": 4
+    },
+    {
+        "id": "hip_flexion_with_band",
+        "popularity": 4
+    },
+    {
+        "id": "hyperextensions_back_extensions",
+        "popularity": 3
+    },
+    {
+        "id": "hyperextensions_with_no_hyperextension_bench",
+        "popularity": 3
+    },
+    {
+        "id": "incline_barbell_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "incline_bench_pull",
+        "popularity": 5
+    },
+    {
+        "id": "incline_cable_chest_press",
+        "popularity": 6
+    },
+    {
+        "id": "incline_cable_flye",
+        "popularity": 8
+    },
+    {
+        "id": "incline_dumbbell_bench_with_palms_facing_in",
+        "popularity": 5
+    },
+    {
+        "id": "incline_dumbbell_curl",
+        "popularity": 5
+    },
+    {
+        "id": "incline_dumbbell_flyes",
+        "popularity": 8
+    },
+    {
+        "id": "incline_dumbbell_flyes_-_with_a_twist",
+        "popularity": 8
+    },
+    {
+        "id": "incline_dumbbell_press",
+        "popularity": 9
+    },
+    {
+        "id": "incline_hammer_curls",
+        "popularity": 9
+    },
+    {
+        "id": "incline_inner_biceps_curl",
+        "popularity": 5
+    },
+    {
+        "id": "incline_push-up",
+        "popularity": 10
+    },
+    {
+        "id": "incline_push-up_close-grip",
+        "popularity": 10
+    },
+    {
+        "id": "incline_push-up_medium",
+        "popularity": 10
+    },
+    {
+        "id": "incline_push-up_reverse_grip",
+        "popularity": 10
+    },
+    {
+        "id": "incline_push-up_wide",
+        "popularity": 10
+    },
+    {
+        "id": "internal_rotation_with_band",
+        "popularity": 4
+    },
+    {
+        "id": "inverted_row",
+        "popularity": 9
+    },
+    {
+        "id": "inverted_row_with_straps",
+        "popularity": 9
+    },
+    {
+        "id": "iron_cross",
+        "popularity": 1
+    },
+    {
+        "id": "isometric_neck_exercise_-_front_and_back",
+        "popularity": 2
+    },
+    {
+        "id": "isometric_neck_exercise_-_sides",
+        "popularity": 2
+    },
+    {
+        "id": "isometric_wipers",
+        "popularity": 1
+    },
+    {
+        "id": "jackknife_sit-up",
+        "popularity": 9
+    },
+    {
+        "id": "janda_sit-up",
+        "popularity": 9
+    },
+    {
+        "id": "jefferson_squats",
+        "popularity": 10
+    },
+    {
+        "id": "jm_press",
+        "popularity": 1
+    },
+    {
+        "id": "kettlebell_arnold_press",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_dead_clean",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_figure_8",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_hang_clean",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_one-legged_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "kettlebell_pass_between_the_legs",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_pirate_ships",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_pistol_squat",
+        "popularity": 10
+    },
+    {
+        "id": "kettlebell_seated_press",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_seesaw_press",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_sumo_high_pull",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_thruster",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_turkish_get-up_lunge_style",
+        "popularity": 7
+    },
+    {
+        "id": "kettlebell_turkish_get-up_squat_style",
+        "popularity": 10
+    },
+    {
+        "id": "kettlebell_windmill",
+        "popularity": 7
+    },
+    {
+        "id": "kipping_muscle_up",
+        "popularity": 1
+    },
+    {
+        "id": "knee_hip_raise_on_parallel_bars",
+        "popularity": 2
+    },
+    {
+        "id": "kneeling_cable_crunch_with_alternating_oblique_twists",
+        "popularity": 9
+    },
+    {
+        "id": "kneeling_cable_triceps_extension",
+        "popularity": 6
+    },
+    {
+        "id": "kneeling_high_pulley_row",
+        "popularity": 9
+    },
+    {
+        "id": "kneeling_single-arm_high_pulley_row",
+        "popularity": 9
+    },
+    {
+        "id": "landmine_180s",
+        "popularity": 1
+    },
+    {
+        "id": "landmine_linear_jammer",
+        "popularity": 1
+    },
+    {
+        "id": "lateral_raise_-_with_bands",
+        "popularity": 8
+    },
+    {
+        "id": "leg_extensions",
+        "popularity": 8
+    },
+    {
+        "id": "leg_lift",
+        "popularity": 1
+    },
+    {
+        "id": "leg_press",
+        "popularity": 9
+    },
+    {
+        "id": "leg_pull-in",
+        "popularity": 1
+    },
+    {
+        "id": "leg-over_floor_press",
+        "popularity": 1
+    },
+    {
+        "id": "leverage_chest_press",
+        "popularity": 1
+    },
+    {
+        "id": "leverage_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "leverage_decline_chest_press",
+        "popularity": 5
+    },
+    {
+        "id": "leverage_high_row",
+        "popularity": 9
+    },
+    {
+        "id": "leverage_incline_chest_press",
+        "popularity": 5
+    },
+    {
+        "id": "leverage_iso_row",
+        "popularity": 9
+    },
+    {
+        "id": "leverage_shoulder_press",
+        "popularity": 9
+    },
+    {
+        "id": "leverage_shrug",
+        "popularity": 8
+    },
+    {
+        "id": "london_bridges",
+        "popularity": 1
+    },
+    {
+        "id": "low_cable_crossover",
+        "popularity": 6
+    },
+    {
+        "id": "low_cable_triceps_extension",
+        "popularity": 6
+    },
+    {
+        "id": "low_pulley_row_to_neck",
+        "popularity": 9
+    },
+    {
+        "id": "lunge_pass_through",
+        "popularity": 1
+    },
+    {
+        "id": "lunge_sprint",
+        "popularity": 1
+    },
+    {
+        "id": "lying_cable_curl",
+        "popularity": 6
+    },
+    {
+        "id": "lying_cambered_barbell_row",
+        "popularity": 9
+    },
+    {
+        "id": "lying_close-grip_bar_curl_on_high_pulley",
+        "popularity": 2
+    },
+    {
+        "id": "lying_close-grip_barbell_triceps_extension_behind_the_head",
+        "popularity": 2
+    },
+    {
+        "id": "lying_close-grip_barbell_triceps_press_to_chin",
+        "popularity": 2
+    },
+    {
+        "id": "lying_dumbbell_tricep_extension",
+        "popularity": 9
+    },
+    {
+        "id": "lying_face_down_plate_neck_resistance",
+        "popularity": 2
+    },
+    {
+        "id": "lying_face_up_plate_neck_resistance",
+        "popularity": 2
+    },
+    {
+        "id": "lying_high_bench_barbell_curl",
+        "popularity": 2
+    },
+    {
+        "id": "lying_leg_curls",
+        "popularity": 8
+    },
+    {
+        "id": "lying_machine_squat",
+        "popularity": 10
+    },
+    {
+        "id": "lying_one-arm_lateral_raise",
+        "popularity": 8
+    },
+    {
+        "id": "lying_rear_delt_raise",
+        "popularity": 1
+    },
+    {
+        "id": "lying_supine_dumbbell_curl",
+        "popularity": 2
+    },
+    {
+        "id": "lying_t-bar_row",
+        "popularity": 9
+    },
+    {
+        "id": "lying_triceps_press",
+        "popularity": 1
+    },
+    {
+        "id": "machine_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "machine_bicep_curl",
+        "popularity": 10
+    },
+    {
+        "id": "machine_preacher_curls",
+        "popularity": 6
+    },
+    {
+        "id": "machine_shoulder_military_press",
+        "popularity": 6
+    },
+    {
+        "id": "machine_triceps_extension",
+        "popularity": 6
+    },
+    {
+        "id": "middle_back_shrug",
+        "popularity": 8
+    },
+    {
+        "id": "mixed_grip_chin",
+        "popularity": 1
+    },
+    {
+        "id": "monster_walk",
+        "popularity": 1
+    },
+    {
+        "id": "muscle_up",
+        "popularity": 1
+    },
+    {
+        "id": "narrow_stance_hack_squats",
+        "popularity": 10
+    },
+    {
+        "id": "narrow_stance_leg_press",
+        "popularity": 9
+    },
+    {
+        "id": "narrow_stance_squats",
+        "popularity": 10
+    },
+    {
+        "id": "natural_glute_ham_raise",
+        "popularity": 1
+    },
+    {
+        "id": "neck_press",
+        "popularity": 1
+    },
+    {
+        "id": "oblique_crunches",
+        "popularity": 9
+    },
+    {
+        "id": "oblique_crunches_-_on_the_floor",
+        "popularity": 9
+    },
+    {
+        "id": "one_arm_chin-up",
+        "popularity": 1
+    },
+    {
+        "id": "one_arm_dumbbell_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "one_arm_dumbbell_preacher_curl",
+        "popularity": 2
+    },
+    {
+        "id": "one_arm_floor_press",
+        "popularity": 1
+    },
+    {
+        "id": "one_arm_lat_pulldown",
+        "popularity": 1
+    },
+    {
+        "id": "one_arm_pronated_dumbbell_triceps_extension",
+        "popularity": 2
+    },
+    {
+        "id": "one_arm_supinated_dumbbell_triceps_extension",
+        "popularity": 2
+    },
+    {
+        "id": "one_leg_barbell_squat",
+        "popularity": 10
+    },
+    {
+        "id": "one-arm_dumbbell_row",
+        "popularity": 9
+    },
+    {
+        "id": "one-arm_flat_bench_dumbbell_flye",
+        "popularity": 8
+    },
+    {
+        "id": "one-arm_high-pulley_cable_side_bends",
+        "popularity": 6
+    },
+    {
+        "id": "one-arm_incline_lateral_raise",
+        "popularity": 8
+    },
+    {
+        "id": "one-arm_kettlebell_clean",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_clean_and_jerk",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_floor_press",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_jerk",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_military_press_to_the_side",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_para_press",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_push_press",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_row",
+        "popularity": 9
+    },
+    {
+        "id": "one-arm_kettlebell_snatch",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_split_jerk",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_split_snatch",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_kettlebell_swings",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_long_bar_row",
+        "popularity": 9
+    },
+    {
+        "id": "one-arm_medicine_ball_slam",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_open_palm_kettlebell_clean",
+        "popularity": 7
+    },
+    {
+        "id": "one-arm_overhead_kettlebell_squats",
+        "popularity": 10
+    },
+    {
+        "id": "one-arm_side_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "one-arm_side_laterals",
+        "popularity": 1
+    },
+    {
+        "id": "one-legged_cable_kickback",
+        "popularity": 6
+    },
+    {
+        "id": "open_palm_kettlebell_clean",
+        "popularity": 7
+    },
+    {
+        "id": "otis-up",
+        "popularity": 1
+    },
+    {
+        "id": "overhead_cable_curl",
+        "popularity": 6
+    },
+    {
+        "id": "pallof_press",
+        "popularity": 1
+    },
+    {
+        "id": "pallof_press_with_rotation",
+        "popularity": 2
+    },
+    {
+        "id": "palms-down_dumbbell_wrist_curl_over_a_bench",
+        "popularity": 2
+    },
+    {
+        "id": "palms-down_wrist_curl_over_a_bench",
+        "popularity": 2
+    },
+    {
+        "id": "palms-up_barbell_wrist_curl_over_a_bench",
+        "popularity": 2
+    },
+    {
+        "id": "palms-up_dumbbell_wrist_curl_over_a_bench",
+        "popularity": 2
+    },
+    {
+        "id": "parallel_bar_dip",
+        "popularity": 8
+    },
+    {
+        "id": "physioball_hip_bridge",
+        "popularity": 1
+    },
+    {
+        "id": "plank",
+        "popularity": 10
+    },
+    {
+        "id": "plate_pinch",
+        "popularity": 1
+    },
+    {
+        "id": "plate_twist",
+        "popularity": 1
+    },
+    {
+        "id": "platform_hamstring_slides",
+        "popularity": 1
+    },
+    {
+        "id": "plie_dumbbell_squat",
+        "popularity": 10
+    },
+    {
+        "id": "plyo_kettlebell_pushups",
+        "popularity": 7
+    },
+    {
+        "id": "power_clean",
+        "popularity": 1
+    },
+    {
+        "id": "power_partials",
+        "popularity": 1
+    },
+    {
+        "id": "preacher_curl",
+        "popularity": 1
+    },
+    {
+        "id": "preacher_hammer_dumbbell_curl",
+        "popularity": 2
+    },
+    {
+        "id": "press_sit-up",
+        "popularity": 9
+    },
+    {
+        "id": "prone_manual_hamstring",
+        "popularity": 1
+    },
+    {
+        "id": "pull_through",
+        "popularity": 1
+    },
+    {
+        "id": "pullups",
+        "popularity": 1
+    },
+    {
+        "id": "push_up_to_side_plank",
+        "popularity": 10
+    },
+    {
+        "id": "push-up_wide",
+        "popularity": 10
+    },
+    {
+        "id": "push-ups_-_close_triceps_position",
+        "popularity": 10
+    },
+    {
+        "id": "push-ups_with_feet_elevated",
+        "popularity": 10
+    },
+    {
+        "id": "push-ups_with_feet_on_an_exercise_ball",
+        "popularity": 10
+    },
+    {
+        "id": "pushups",
+        "popularity": 1
+    },
+    {
+        "id": "pushups_close_and_wide_hand_positions",
+        "popularity": 2
+    },
+    {
+        "id": "reverse_barbell_curl",
+        "popularity": 5
+    },
+    {
+        "id": "reverse_barbell_preacher_curls",
+        "popularity": 5
+    },
+    {
+        "id": "reverse_cable_curl",
+        "popularity": 6
+    },
+    {
+        "id": "reverse_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "reverse_flyes",
+        "popularity": 8
+    },
+    {
+        "id": "reverse_flyes_with_external_rotation",
+        "popularity": 8
+    },
+    {
+        "id": "reverse_grip_bent-over_rows",
+        "popularity": 9
+    },
+    {
+        "id": "reverse_grip_triceps_pushdown",
+        "popularity": 5
+    },
+    {
+        "id": "reverse_hyperextension",
+        "popularity": 5
+    },
+    {
+        "id": "reverse_machine_flyes",
+        "popularity": 8
+    },
+    {
+        "id": "reverse_plate_curls",
+        "popularity": 5
+    },
+    {
+        "id": "reverse_triceps_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "ring_dips",
+        "popularity": 8
+    },
+    {
+        "id": "rocking_standing_calf_raise",
+        "popularity": 9
+    },
+    {
+        "id": "rocky_pull-ups_pulldowns",
+        "popularity": 10
+    },
+    {
+        "id": "romanian_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "rope_climb",
+        "popularity": 1
+    },
+    {
+        "id": "rope_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "rope_straight-arm_pulldown",
+        "popularity": 2
+    },
+    {
+        "id": "russian_twist",
+        "popularity": 1
+    },
+    {
+        "id": "scapular_pull-up",
+        "popularity": 10
+    },
+    {
+        "id": "seated_band_hamstring_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_barbell_military_press",
+        "popularity": 5
+    },
+    {
+        "id": "seated_barbell_twist",
+        "popularity": 5
+    },
+    {
+        "id": "seated_bent-over_one-arm_dumbbell_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "seated_bent-over_rear_delt_raise",
+        "popularity": 5
+    },
+    {
+        "id": "seated_bent-over_two-arm_dumbbell_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "seated_cable_rows",
+        "popularity": 9
+    },
+    {
+        "id": "seated_cable_shoulder_press",
+        "popularity": 9
+    },
+    {
+        "id": "seated_calf_raise",
+        "popularity": 9
+    },
+    {
+        "id": "seated_close-grip_concentration_barbell_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_dumbbell_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_dumbbell_inner_biceps_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_dumbbell_palms-down_wrist_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_dumbbell_palms-up_wrist_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_dumbbell_press",
+        "popularity": 9
+    },
+    {
+        "id": "seated_flat_bench_leg_pull-in",
+        "popularity": 5
+    },
+    {
+        "id": "seated_head_harness_neck_resistance",
+        "popularity": 5
+    },
+    {
+        "id": "seated_leg_curl",
+        "popularity": 8
+    },
+    {
+        "id": "seated_leg_tucks",
+        "popularity": 5
+    },
+    {
+        "id": "seated_one-arm_cable_pulley_rows",
+        "popularity": 9
+    },
+    {
+        "id": "seated_one-arm_dumbbell_palms-down_wrist_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_one-arm_dumbbell_palms-up_wrist_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_palm-up_barbell_wrist_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_palms-down_barbell_wrist_curl",
+        "popularity": 5
+    },
+    {
+        "id": "seated_side_lateral_raise",
+        "popularity": 8
+    },
+    {
+        "id": "seated_triceps_press",
+        "popularity": 5
+    },
+    {
+        "id": "seated_two-arm_palms-up_low-pulley_wrist_curl",
+        "popularity": 5
+    },
+    {
+        "id": "see-saw_press_alternating_side_press",
+        "popularity": 2
+    },
+    {
+        "id": "shotgun_row",
+        "popularity": 9
+    },
+    {
+        "id": "shoulder_press_-_with_bands",
+        "popularity": 9
+    },
+    {
+        "id": "side_bridge",
+        "popularity": 1
+    },
+    {
+        "id": "side_jackknife",
+        "popularity": 1
+    },
+    {
+        "id": "side_lateral_raise",
+        "popularity": 8
+    },
+    {
+        "id": "side_laterals_to_front_raise",
+        "popularity": 8
+    },
+    {
+        "id": "side_to_side_chins",
+        "popularity": 1
+    },
+    {
+        "id": "single_dumbbell_raise",
+        "popularity": 1
+    },
+    {
+        "id": "single_leg_glute_bridge",
+        "popularity": 1
+    },
+    {
+        "id": "single-arm_cable_crossover",
+        "popularity": 6
+    },
+    {
+        "id": "single-arm_linear_jammer",
+        "popularity": 1
+    },
+    {
+        "id": "single-arm_push-up",
+        "popularity": 10
+    },
+    {
+        "id": "single-leg_high_box_squat",
+        "popularity": 10
+    },
+    {
+        "id": "single-leg_leg_extension",
+        "popularity": 8
+    },
+    {
+        "id": "sit-up",
+        "popularity": 9
+    },
+    {
+        "id": "sled_overhead_backward_walk",
+        "popularity": 2
+    },
+    {
+        "id": "sled_overhead_triceps_extension",
+        "popularity": 2
+    },
+    {
+        "id": "sled_reverse_flye",
+        "popularity": 8
+    },
+    {
+        "id": "sled_row",
+        "popularity": 9
+    },
+    {
+        "id": "smith_incline_shoulder_raise",
+        "popularity": 5
+    },
+    {
+        "id": "smith_machine_behind_the_back_shrug",
+        "popularity": 8
+    },
+    {
+        "id": "smith_machine_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "smith_machine_bent_over_row",
+        "popularity": 9
+    },
+    {
+        "id": "smith_machine_calf_raise",
+        "popularity": 9
+    },
+    {
+        "id": "smith_machine_close-grip_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "smith_machine_decline_press",
+        "popularity": 6
+    },
+    {
+        "id": "smith_machine_hang_power_clean",
+        "popularity": 6
+    },
+    {
+        "id": "smith_machine_hip_raise",
+        "popularity": 6
+    },
+    {
+        "id": "smith_machine_incline_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "smith_machine_leg_press",
+        "popularity": 9
+    },
+    {
+        "id": "smith_machine_one-arm_upright_row",
+        "popularity": 9
+    },
+    {
+        "id": "smith_machine_overhead_shoulder_press",
+        "popularity": 9
+    },
+    {
+        "id": "smith_machine_pistol_squat",
+        "popularity": 10
+    },
+    {
+        "id": "smith_machine_reverse_calf_raises",
+        "popularity": 9
+    },
+    {
+        "id": "smith_machine_squat",
+        "popularity": 10
+    },
+    {
+        "id": "smith_machine_stiff-legged_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "smith_machine_upright_row",
+        "popularity": 9
+    },
+    {
+        "id": "smith_single-leg_split_squat",
+        "popularity": 10
+    },
+    {
+        "id": "snatch_pull",
+        "popularity": 7
+    },
+    {
+        "id": "speed_band_overhead_triceps",
+        "popularity": 4
+    },
+    {
+        "id": "speed_squats",
+        "popularity": 10
+    },
+    {
+        "id": "spell_caster",
+        "popularity": 1
+    },
+    {
+        "id": "spider_crawl",
+        "popularity": 1
+    },
+    {
+        "id": "spider_curl",
+        "popularity": 1
+    },
+    {
+        "id": "split_squat_with_dumbbells",
+        "popularity": 10
+    },
+    {
+        "id": "squat_jerk",
+        "popularity": 10
+    },
+    {
+        "id": "squat_with_plate_movers",
+        "popularity": 10
+    },
+    {
+        "id": "squats_-_with_bands",
+        "popularity": 10
+    },
+    {
+        "id": "standing_alternating_dumbbell_press",
+        "popularity": 9
+    },
+    {
+        "id": "standing_barbell_calf_raise",
+        "popularity": 9
+    },
+    {
+        "id": "standing_barbell_press_behind_neck",
+        "popularity": 5
+    },
+    {
+        "id": "standing_bent-over_one-arm_dumbbell_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "standing_bent-over_two-arm_dumbbell_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "standing_biceps_cable_curl",
+        "popularity": 6
+    },
+    {
+        "id": "standing_bradford_press",
+        "popularity": 5
+    },
+    {
+        "id": "standing_cable_chest_press",
+        "popularity": 6
+    },
+    {
+        "id": "standing_cable_lift",
+        "popularity": 6
+    },
+    {
+        "id": "standing_cable_wood_chop",
+        "popularity": 6
+    },
+    {
+        "id": "standing_calf_raises",
+        "popularity": 9
+    },
+    {
+        "id": "standing_concentration_curl",
+        "popularity": 5
+    },
+    {
+        "id": "standing_dumbbell_calf_raise",
+        "popularity": 9
+    },
+    {
+        "id": "standing_dumbbell_press",
+        "popularity": 9
+    },
+    {
+        "id": "standing_dumbbell_reverse_curl",
+        "popularity": 5
+    },
+    {
+        "id": "standing_dumbbell_straight-arm_front_delt_raise_above_head",
+        "popularity": 5
+    },
+    {
+        "id": "standing_dumbbell_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "standing_dumbbell_upright_row",
+        "popularity": 9
+    },
+    {
+        "id": "standing_front_barbell_raise_over_head",
+        "popularity": 5
+    },
+    {
+        "id": "standing_inner-biceps_curl",
+        "popularity": 5
+    },
+    {
+        "id": "standing_leg_curl",
+        "popularity": 8
+    },
+    {
+        "id": "standing_low-pulley_deltoid_raise",
+        "popularity": 5
+    },
+    {
+        "id": "standing_low-pulley_one-arm_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "standing_military_press",
+        "popularity": 5
+    },
+    {
+        "id": "standing_olympic_plate_hand_squeeze",
+        "popularity": 5
+    },
+    {
+        "id": "standing_one-arm_cable_curl",
+        "popularity": 6
+    },
+    {
+        "id": "standing_one-arm_dumbbell_curl_over_incline_bench",
+        "popularity": 5
+    },
+    {
+        "id": "standing_one-arm_dumbbell_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "standing_overhead_barbell_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "standing_palm-in_one-arm_dumbbell_press",
+        "popularity": 9
+    },
+    {
+        "id": "standing_palms-in_dumbbell_press",
+        "popularity": 9
+    },
+    {
+        "id": "standing_palms-up_barbell_behind_the_back_wrist_curl",
+        "popularity": 5
+    },
+    {
+        "id": "standing_rope_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "standing_towel_triceps_extension",
+        "popularity": 5
+    },
+    {
+        "id": "step-up_with_knee_raise",
+        "popularity": 1
+    },
+    {
+        "id": "stiff_leg_barbell_good_morning",
+        "popularity": 3
+    },
+    {
+        "id": "stiff-legged_barbell_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "stiff-legged_dumbbell_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "straight_bar_bench_mid_rows",
+        "popularity": 9
+    },
+    {
+        "id": "straight_raises_on_incline_bench",
+        "popularity": 5
+    },
+    {
+        "id": "straight-arm_dumbbell_pullover",
+        "popularity": 2
+    },
+    {
+        "id": "straight-arm_pulldown",
+        "popularity": 1
+    },
+    {
+        "id": "suspended_fallout",
+        "popularity": 1
+    },
+    {
+        "id": "suspended_push-up",
+        "popularity": 10
+    },
+    {
+        "id": "suspended_reverse_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "suspended_row",
+        "popularity": 9
+    },
+    {
+        "id": "suspended_split_squat",
+        "popularity": 10
+    },
+    {
+        "id": "svend_press",
+        "popularity": 1
+    },
+    {
+        "id": "t-bar_row_with_handle",
+        "popularity": 9
+    },
+    {
+        "id": "tate_press",
+        "popularity": 1
+    },
+    {
+        "id": "thigh_abductor",
+        "popularity": 1
+    },
+    {
+        "id": "thigh_adductor",
+        "popularity": 1
+    },
+    {
+        "id": "trap_bar_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "tricep_dumbbell_kickback",
+        "popularity": 1
+    },
+    {
+        "id": "triceps_overhead_extension_with_rope",
+        "popularity": 2
+    },
+    {
+        "id": "triceps_pushdown",
+        "popularity": 1
+    },
+    {
+        "id": "triceps_pushdown_-_rope_attachment",
+        "popularity": 2
+    },
+    {
+        "id": "triceps_pushdown_-_v-bar_attachment",
+        "popularity": 2
+    },
+    {
+        "id": "tuck_crunch",
+        "popularity": 9
+    },
+    {
+        "id": "two-arm_dumbbell_preacher_curl",
+        "popularity": 2
+    },
+    {
+        "id": "two-arm_kettlebell_clean",
+        "popularity": 7
+    },
+    {
+        "id": "two-arm_kettlebell_jerk",
+        "popularity": 7
+    },
+    {
+        "id": "two-arm_kettlebell_military_press",
+        "popularity": 7
+    },
+    {
+        "id": "two-arm_kettlebell_row",
+        "popularity": 9
+    },
+    {
+        "id": "underhand_cable_pulldowns",
+        "popularity": 6
+    },
+    {
+        "id": "upright_barbell_row",
+        "popularity": 9
+    },
+    {
+        "id": "upright_cable_row",
+        "popularity": 9
+    },
+    {
+        "id": "upright_row_-_with_bands",
+        "popularity": 9
+    },
+    {
+        "id": "v-bar_pulldown",
+        "popularity": 1
+    },
+    {
+        "id": "v-bar_pullup",
+        "popularity": 1
+    },
+    {
+        "id": "weighted_ball_hyperextension",
+        "popularity": 3
+    },
+    {
+        "id": "weighted_ball_side_bend",
+        "popularity": 1
+    },
+    {
+        "id": "weighted_bench_dip",
+        "popularity": 8
+    },
+    {
+        "id": "weighted_crunches",
+        "popularity": 9
+    },
+    {
+        "id": "weighted_jump_squat",
+        "popularity": 10
+    },
+    {
+        "id": "weighted_pull_ups",
+        "popularity": 1
+    },
+    {
+        "id": "weighted_sissy_squat",
+        "popularity": 10
+    },
+    {
+        "id": "weighted_sit-ups_-_with_bands",
+        "popularity": 9
+    },
+    {
+        "id": "weighted_squat",
+        "popularity": 10
+    },
+    {
+        "id": "wide_stance_barbell_squat",
+        "popularity": 10
+    },
+    {
+        "id": "wide-grip_barbell_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "wide-grip_decline_barbell_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "wide-grip_decline_barbell_pullover",
+        "popularity": 5
+    },
+    {
+        "id": "wide-grip_lat_pulldown",
+        "popularity": 1
+    },
+    {
+        "id": "wide-grip_pulldown_behind_the_neck",
+        "popularity": 2
+    },
+    {
+        "id": "wide-grip_rear_pull-up",
+        "popularity": 10
+    },
+    {
+        "id": "wide-grip_standing_barbell_curl",
+        "popularity": 5
+    },
+    {
+        "id": "wind_sprints",
+        "popularity": 1
+    },
+    {
+        "id": "wrist_roller",
+        "popularity": 1
+    },
+    {
+        "id": "wrist_rotations_with_straight_bar",
+        "popularity": 2
+    },
+    {
+        "id": "zercher_squats",
+        "popularity": 10
+    },
+    {
+        "id": "zottman_curl",
+        "popularity": 1
+    },
+    {
+        "id": "zottman_preacher_curl",
+        "popularity": 1
+    },
+    {
+        "id": "90_90_hamstring",
+        "popularity": 1
+    },
+    {
+        "id": "adductor",
+        "popularity": 1
+    },
+    {
+        "id": "adductor_groin",
+        "popularity": 1
+    },
+    {
+        "id": "all_fours_quad_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "ankle_circles",
+        "popularity": 1
+    },
+    {
+        "id": "ankle_on_the_knee",
+        "popularity": 1
+    },
+    {
+        "id": "anterior_tibialis-smr",
+        "popularity": 1
+    },
+    {
+        "id": "arm_circles",
+        "popularity": 1
+    },
+    {
+        "id": "behind_head_chest_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "brachialis-smr",
+        "popularity": 1
+    },
+    {
+        "id": "calf_stretch_elbows_against_wall",
+        "popularity": 2
+    },
+    {
+        "id": "calf_stretch_hands_against_wall",
+        "popularity": 2
+    },
+    {
+        "id": "calves-smr",
+        "popularity": 1
+    },
+    {
+        "id": "cat_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "chair_leg_extended_stretch",
+        "popularity": 2
+    },
+    {
+        "id": "chair_lower_back_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "chair_upper_body_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "chest_and_front_of_shoulder_stretch",
+        "popularity": 2
+    },
+    {
+        "id": "chest_stretch_on_stability_ball",
+        "popularity": 4
+    },
+    {
+        "id": "childs_pose",
+        "popularity": 1
+    },
+    {
+        "id": "chin_to_chest_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "crossover_reverse_lunge",
+        "popularity": 5
+    },
+    {
+        "id": "dancers_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "dynamic_back_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "dynamic_chest_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "elbow_circles",
+        "popularity": 1
+    },
+    {
+        "id": "elbows_back",
+        "popularity": 1
+    },
+    {
+        "id": "foot-smr",
+        "popularity": 1
+    },
+    {
+        "id": "frog_hops",
+        "popularity": 1
+    },
+    {
+        "id": "front_leg_raises",
+        "popularity": 1
+    },
+    {
+        "id": "groin_and_back_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "groiners",
+        "popularity": 1
+    },
+    {
+        "id": "hamstring_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "hamstring-smr",
+        "popularity": 1
+    },
+    {
+        "id": "hip_circles_prone",
+        "popularity": 1
+    },
+    {
+        "id": "hug_a_ball",
+        "popularity": 1
+    },
+    {
+        "id": "hug_knees_to_chest",
+        "popularity": 1
+    },
+    {
+        "id": "iliotibial_tract-smr",
+        "popularity": 1
+    },
+    {
+        "id": "inchworm",
+        "popularity": 1
+    },
+    {
+        "id": "intermediate_groin_stretch",
+        "popularity": 2
+    },
+    {
+        "id": "intermediate_hip_flexor_and_quad_stretch",
+        "popularity": 2
+    },
+    {
+        "id": "iron_crosses_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "it_band_and_glute_stretch",
+        "popularity": 4
+    },
+    {
+        "id": "knee_across_the_body",
+        "popularity": 1
+    },
+    {
+        "id": "knee_circles",
+        "popularity": 1
+    },
+    {
+        "id": "kneeling_forearm_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "kneeling_hip_flexor",
+        "popularity": 1
+    },
+    {
+        "id": "latissimus_dorsi-smr",
+        "popularity": 1
+    },
+    {
+        "id": "leg-up_hamstring_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "looking_at_ceiling",
+        "popularity": 1
+    },
+    {
+        "id": "lower_back_curl",
+        "popularity": 1
+    },
+    {
+        "id": "lower_back-smr",
+        "popularity": 1
+    },
+    {
+        "id": "lying_bent_leg_groin",
+        "popularity": 1
+    },
+    {
+        "id": "lying_crossover",
+        "popularity": 1
+    },
+    {
+        "id": "lying_glute",
+        "popularity": 1
+    },
+    {
+        "id": "lying_hamstring",
+        "popularity": 1
+    },
+    {
+        "id": "lying_prone_quadriceps",
+        "popularity": 1
+    },
+    {
+        "id": "middle_back_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "neck-smr",
+        "popularity": 1
+    },
+    {
+        "id": "on_your_side_quad_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "on-your-back_quad_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "one_arm_against_wall",
+        "popularity": 1
+    },
+    {
+        "id": "one_half_locust",
+        "popularity": 1
+    },
+    {
+        "id": "one_handed_hang",
+        "popularity": 1
+    },
+    {
+        "id": "one_knee_to_chest",
+        "popularity": 1
+    },
+    {
+        "id": "overhead_lat",
+        "popularity": 1
+    },
+    {
+        "id": "overhead_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "overhead_triceps",
+        "popularity": 1
+    },
+    {
+        "id": "pelvic_tilt_into_bridge",
+        "popularity": 1
+    },
+    {
+        "id": "peroneals_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "peroneals-smr",
+        "popularity": 1
+    },
+    {
+        "id": "piriformis-smr",
+        "popularity": 1
+    },
+    {
+        "id": "posterior_tibialis_stretch",
+        "popularity": 2
+    },
+    {
+        "id": "pyramid",
+        "popularity": 1
+    },
+    {
+        "id": "quad_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "quadriceps-smr",
+        "popularity": 1
+    },
+    {
+        "id": "rear_leg_raises",
+        "popularity": 1
+    },
+    {
+        "id": "rhomboids-smr",
+        "popularity": 1
+    },
+    {
+        "id": "round_the_world_shoulder_stretch",
+        "popularity": 2
+    },
+    {
+        "id": "runners_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "scissor_kick",
+        "popularity": 1
+    },
+    {
+        "id": "seated_biceps",
+        "popularity": 5
+    },
+    {
+        "id": "seated_calf_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "seated_floor_hamstring_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "seated_front_deltoid",
+        "popularity": 5
+    },
+    {
+        "id": "seated_glute",
+        "popularity": 5
+    },
+    {
+        "id": "seated_hamstring",
+        "popularity": 5
+    },
+    {
+        "id": "seated_hamstring_and_calf_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "seated_overhead_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "shoulder_circles",
+        "popularity": 1
+    },
+    {
+        "id": "shoulder_raise",
+        "popularity": 1
+    },
+    {
+        "id": "shoulder_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "side_leg_raises",
+        "popularity": 1
+    },
+    {
+        "id": "side_lying_groin_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "side_neck_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "side_wrist_pull",
+        "popularity": 1
+    },
+    {
+        "id": "side-lying_floor_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "sit_squats",
+        "popularity": 10
+    },
+    {
+        "id": "spinal_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "split_squats",
+        "popularity": 10
+    },
+    {
+        "id": "standing_biceps_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "standing_elevated_quad_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "standing_gastrocnemius_calf_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "standing_hamstring_and_calf_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "standing_hip_circles",
+        "popularity": 5
+    },
+    {
+        "id": "standing_hip_flexors",
+        "popularity": 5
+    },
+    {
+        "id": "standing_lateral_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "standing_pelvic_tilt",
+        "popularity": 5
+    },
+    {
+        "id": "standing_soleus_and_achilles_stretch",
+        "popularity": 5
+    },
+    {
+        "id": "standing_toe_touches",
+        "popularity": 5
+    },
+    {
+        "id": "stomach_vacuum",
+        "popularity": 1
+    },
+    {
+        "id": "superman",
+        "popularity": 1
+    },
+    {
+        "id": "the_straddle",
+        "popularity": 1
+    },
+    {
+        "id": "toe_touchers",
+        "popularity": 1
+    },
+    {
+        "id": "torso_rotation",
+        "popularity": 1
+    },
+    {
+        "id": "tricep_side_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "triceps_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "upper_back_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "upper_back-leg_grab",
+        "popularity": 1
+    },
+    {
+        "id": "upward_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "windmills",
+        "popularity": 1
+    },
+    {
+        "id": "worlds_greatest_stretch",
+        "popularity": 1
+    },
+    {
+        "id": "wrist_circles",
+        "popularity": 1
+    },
+    {
+        "id": "alternate_leg_diagonal_bound",
+        "popularity": 2
+    },
+    {
+        "id": "backward_medicine_ball_throw",
+        "popularity": 9
+    },
+    {
+        "id": "bench_jump",
+        "popularity": 1
+    },
+    {
+        "id": "bench_sprint",
+        "popularity": 1
+    },
+    {
+        "id": "box_jump_multiple_response",
+        "popularity": 7
+    },
+    {
+        "id": "box_skip",
+        "popularity": 1
+    },
+    {
+        "id": "carioca_quick_step",
+        "popularity": 1
+    },
+    {
+        "id": "catch_and_overhead_throw",
+        "popularity": 9
+    },
+    {
+        "id": "chest_push_from_3_point_stance",
+        "popularity": 2
+    },
+    {
+        "id": "chest_push_multiple_response",
+        "popularity": 2
+    },
+    {
+        "id": "chest_push_single_response",
+        "popularity": 2
+    },
+    {
+        "id": "chest_push_with_run_release",
+        "popularity": 2
+    },
+    {
+        "id": "depth_jump_leap",
+        "popularity": 1
+    },
+    {
+        "id": "double_leg_butt_kick",
+        "popularity": 1
+    },
+    {
+        "id": "drop_push",
+        "popularity": 1
+    },
+    {
+        "id": "dumbbell_seated_box_jump",
+        "popularity": 7
+    },
+    {
+        "id": "fast_skipping",
+        "popularity": 1
+    },
+    {
+        "id": "front_box_jump",
+        "popularity": 7
+    },
+    {
+        "id": "front_cone_hops_or_hurdle_hops",
+        "popularity": 2
+    },
+    {
+        "id": "heavy_bag_thrust",
+        "popularity": 1
+    },
+    {
+        "id": "hurdle_hops",
+        "popularity": 1
+    },
+    {
+        "id": "incline_push-up_depth_jump",
+        "popularity": 10
+    },
+    {
+        "id": "isometric_chest_squeezes",
+        "popularity": 1
+    },
+    {
+        "id": "knee_tuck_jump",
+        "popularity": 1
+    },
+    {
+        "id": "kneeling_arm_drill",
+        "popularity": 1
+    },
+    {
+        "id": "lateral_bound",
+        "popularity": 1
+    },
+    {
+        "id": "lateral_box_jump",
+        "popularity": 7
+    },
+    {
+        "id": "lateral_cone_hops",
+        "popularity": 1
+    },
+    {
+        "id": "linear_3-part_start_technique",
+        "popularity": 2
+    },
+    {
+        "id": "linear_acceleration_wall_drill",
+        "popularity": 2
+    },
+    {
+        "id": "linear_depth_jump",
+        "popularity": 1
+    },
+    {
+        "id": "medicine_ball_chest_pass",
+        "popularity": 7
+    },
+    {
+        "id": "medicine_ball_full_twist",
+        "popularity": 7
+    },
+    {
+        "id": "medicine_ball_scoop_throw",
+        "popularity": 9
+    },
+    {
+        "id": "mountain_climbers",
+        "popularity": 7
+    },
+    {
+        "id": "moving_claw_series",
+        "popularity": 1
+    },
+    {
+        "id": "overhead_slam",
+        "popularity": 1
+    },
+    {
+        "id": "plyo_push-up",
+        "popularity": 10
+    },
+    {
+        "id": "quick_leap",
+        "popularity": 1
+    },
+    {
+        "id": "return_push_from_stance",
+        "popularity": 1
+    },
+    {
+        "id": "rocket_jump",
+        "popularity": 1
+    },
+    {
+        "id": "scissors_jump",
+        "popularity": 1
+    },
+    {
+        "id": "side_hop-sprint",
+        "popularity": 1
+    },
+    {
+        "id": "side_standing_long_jump",
+        "popularity": 5
+    },
+    {
+        "id": "side_to_side_box_shuffle",
+        "popularity": 1
+    },
+    {
+        "id": "single_leg_butt_kick",
+        "popularity": 1
+    },
+    {
+        "id": "single_leg_push-off",
+        "popularity": 1
+    },
+    {
+        "id": "single-cone_sprint_drill",
+        "popularity": 1
+    },
+    {
+        "id": "single-leg_hop_progression",
+        "popularity": 2
+    },
+    {
+        "id": "single-leg_lateral_hop",
+        "popularity": 1
+    },
+    {
+        "id": "single-leg_stride_jump",
+        "popularity": 1
+    },
+    {
+        "id": "sledgehammer_swings",
+        "popularity": 1
+    },
+    {
+        "id": "split_jump",
+        "popularity": 1
+    },
+    {
+        "id": "standing_long_jump",
+        "popularity": 5
+    },
+    {
+        "id": "standing_two-arm_overhead_throw",
+        "popularity": 9
+    },
+    {
+        "id": "star_jump",
+        "popularity": 1
+    },
+    {
+        "id": "stride_jump_crossover",
+        "popularity": 1
+    },
+    {
+        "id": "supine_chest_throw",
+        "popularity": 9
+    },
+    {
+        "id": "supine_one-arm_overhead_throw",
+        "popularity": 9
+    },
+    {
+        "id": "supine_two-arm_overhead_throw",
+        "popularity": 9
+    },
+    {
+        "id": "vertical_swing",
+        "popularity": 1
+    },
+    {
+        "id": "atlas_stone_trainer",
+        "popularity": 1
+    },
+    {
+        "id": "atlas_stones",
+        "popularity": 1
+    },
+    {
+        "id": "axle_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "backward_drag",
+        "popularity": 1
+    },
+    {
+        "id": "bear_crawl_sled_drags",
+        "popularity": 1
+    },
+    {
+        "id": "car_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "circus_bell",
+        "popularity": 1
+    },
+    {
+        "id": "conans_wheel",
+        "popularity": 1
+    },
+    {
+        "id": "crucifix",
+        "popularity": 1
+    },
+    {
+        "id": "farmers_walk",
+        "popularity": 1
+    },
+    {
+        "id": "forward_drag_with_press",
+        "popularity": 1
+    },
+    {
+        "id": "keg_load",
+        "popularity": 1
+    },
+    {
+        "id": "log_lift",
+        "popularity": 1
+    },
+    {
+        "id": "power_stairs",
+        "popularity": 1
+    },
+    {
+        "id": "rickshaw_carry",
+        "popularity": 1
+    },
+    {
+        "id": "rickshaw_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "sandbag_load",
+        "popularity": 1
+    },
+    {
+        "id": "sled_drag_-_harness",
+        "popularity": 1
+    },
+    {
+        "id": "sled_push",
+        "popularity": 1
+    },
+    {
+        "id": "tire_flip",
+        "popularity": 1
+    },
+    {
+        "id": "yoke_walk",
+        "popularity": 1
+    },
+    {
+        "id": "band_good_morning",
+        "popularity": 4
+    },
+    {
+        "id": "band_good_morning_pull_through",
+        "popularity": 4
+    },
+    {
+        "id": "barbell_glute_bridge",
+        "popularity": 1
+    },
+    {
+        "id": "barbell_hip_thrust",
+        "popularity": 1
+    },
+    {
+        "id": "bench_press_-_powerlifting",
+        "popularity": 10
+    },
+    {
+        "id": "bench_press_with_chains",
+        "popularity": 10
+    },
+    {
+        "id": "board_press",
+        "popularity": 1
+    },
+    {
+        "id": "box_squat",
+        "popularity": 10
+    },
+    {
+        "id": "box_squat_with_bands",
+        "popularity": 10
+    },
+    {
+        "id": "chain_handle_extension",
+        "popularity": 1
+    },
+    {
+        "id": "chain_press",
+        "popularity": 1
+    },
+    {
+        "id": "deadlift_with_bands",
+        "popularity": 10
+    },
+    {
+        "id": "deadlift_with_chains",
+        "popularity": 10
+    },
+    {
+        "id": "deficit_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "dumbbell_floor_press",
+        "popularity": 1
+    },
+    {
+        "id": "floor_press",
+        "popularity": 1
+    },
+    {
+        "id": "floor_press_with_chains",
+        "popularity": 4
+    },
+    {
+        "id": "glute_ham_raise",
+        "popularity": 1
+    },
+    {
+        "id": "good_morning",
+        "popularity": 3
+    },
+    {
+        "id": "good_morning_off_pins",
+        "popularity": 3
+    },
+    {
+        "id": "hanging_bar_good_morning",
+        "popularity": 3
+    },
+    {
+        "id": "hip_lift_with_band",
+        "popularity": 4
+    },
+    {
+        "id": "kneeling_squat",
+        "popularity": 10
+    },
+    {
+        "id": "pin_presses",
+        "popularity": 1
+    },
+    {
+        "id": "rack_pull_with_bands",
+        "popularity": 4
+    },
+    {
+        "id": "rack_pulls",
+        "popularity": 1
+    },
+    {
+        "id": "reverse_band_bench_press",
+        "popularity": 10
+    },
+    {
+        "id": "reverse_band_box_squat",
+        "popularity": 10
+    },
+    {
+        "id": "reverse_band_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "reverse_band_power_squat",
+        "popularity": 10
+    },
+    {
+        "id": "reverse_band_sumo_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "seated_good_mornings",
+        "popularity": 5
+    },
+    {
+        "id": "speed_box_squat",
+        "popularity": 10
+    },
+    {
+        "id": "squat_with_bands",
+        "popularity": 10
+    },
+    {
+        "id": "squat_with_chains",
+        "popularity": 10
+    },
+    {
+        "id": "sumo_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "sumo_deadlift_with_bands",
+        "popularity": 10
+    },
+    {
+        "id": "sumo_deadlift_with_chains",
+        "popularity": 10
+    },
+    {
+        "id": "bicycling",
+        "popularity": 1
+    },
+    {
+        "id": "bicycling_stationary",
+        "popularity": 1
+    },
+    {
+        "id": "elliptical_trainer",
+        "popularity": 6
+    },
+    {
+        "id": "jogging_treadmill",
+        "popularity": 6
+    },
+    {
+        "id": "prowler_sprint",
+        "popularity": 9
+    },
+    {
+        "id": "recumbent_bike",
+        "popularity": 1
+    },
+    {
+        "id": "rope_jumping",
+        "popularity": 1
+    },
+    {
+        "id": "rowing_stationary",
+        "popularity": 9
+    },
+    {
+        "id": "running_treadmill",
+        "popularity": 6
+    },
+    {
+        "id": "skating",
+        "popularity": 1
+    },
+    {
+        "id": "stairmaster",
+        "popularity": 1
+    },
+    {
+        "id": "step_mill",
+        "popularity": 1
+    },
+    {
+        "id": "trail_running_walking",
+        "popularity": 1
+    },
+    {
+        "id": "walking_treadmill",
+        "popularity": 6
+    },
+    {
+        "id": "clean",
+        "popularity": 1
+    },
+    {
+        "id": "clean_and_jerk",
+        "popularity": 7
+    },
+    {
+        "id": "clean_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "clean_from_blocks",
+        "popularity": 1
+    },
+    {
+        "id": "clean_pull",
+        "popularity": 1
+    },
+    {
+        "id": "clean_shrug",
+        "popularity": 8
+    },
+    {
+        "id": "frankenstein_squat",
+        "popularity": 10
+    },
+    {
+        "id": "hang_clean",
+        "popularity": 1
+    },
+    {
+        "id": "hang_clean_-_below_the_knees",
+        "popularity": 2
+    },
+    {
+        "id": "hang_snatch",
+        "popularity": 7
+    },
+    {
+        "id": "hang_snatch_-_below_knees",
+        "popularity": 7
+    },
+    {
+        "id": "heaving_snatch_balance",
+        "popularity": 7
+    },
+    {
+        "id": "jerk_balance",
+        "popularity": 1
+    },
+    {
+        "id": "jerk_dip_squat",
+        "popularity": 10
+    },
+    {
+        "id": "kneeling_jump_squat",
+        "popularity": 10
+    },
+    {
+        "id": "muscle_snatch",
+        "popularity": 7
+    },
+    {
+        "id": "olympic_squat",
+        "popularity": 10
+    },
+    {
+        "id": "overhead_squat",
+        "popularity": 10
+    },
+    {
+        "id": "power_clean_from_blocks",
+        "popularity": 1
+    },
+    {
+        "id": "power_jerk",
+        "popularity": 1
+    },
+    {
+        "id": "power_snatch",
+        "popularity": 7
+    },
+    {
+        "id": "power_snatch_from_blocks",
+        "popularity": 7
+    },
+    {
+        "id": "push_press",
+        "popularity": 1
+    },
+    {
+        "id": "push_press_-_behind_the_neck",
+        "popularity": 2
+    },
+    {
+        "id": "rack_delivery",
+        "popularity": 1
+    },
+    {
+        "id": "romanian_deadlift_from_deficit",
+        "popularity": 10
+    },
+    {
+        "id": "snatch",
+        "popularity": 7
+    },
+    {
+        "id": "snatch_balance",
+        "popularity": 7
+    },
+    {
+        "id": "snatch_deadlift",
+        "popularity": 10
+    },
+    {
+        "id": "snatch_from_blocks",
+        "popularity": 7
+    },
+    {
+        "id": "snatch_shrug",
+        "popularity": 8
+    },
+    {
+        "id": "split_clean",
+        "popularity": 1
+    },
+    {
+        "id": "split_jerk",
+        "popularity": 1
+    },
+    {
+        "id": "split_snatch",
+        "popularity": 7
+    },
+    {
+        "id": "wide_stance_stiff_legs",
+        "popularity": 1
+    }
+]
