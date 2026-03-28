@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Muscle;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class PlanGeneratorController extends Controller
 {
+    // use App\Http\Controllers\PlanGeneratorController;
     // PlanGeneratorController::generate_day_plan(["chest", "shoulders", "triceps"], 3);
     private static function generate_exercie_numbering(array $muscle_ids = [], int $exercies_count = 3)
     {
@@ -89,7 +91,14 @@ class PlanGeneratorController extends Controller
         return $muscles_and_counts;
     }
 
-    public static function generate_day_plan(array $muscle_ids = [], int $exercies_count = 3)
+    private static function random_exercise($exercices, float $top_p, int $choices)
+    {
+        // top_p must be between 0 -> 1
+        $exercices = $exercices->reject(fn($ex) => (($ex->popularity) / 10) < $top_p);
+        return $exercices->random($choices);
+    }
+
+    public static function generate_day_plan(array $muscle_ids = [], int $exercies_count = 3, float $top_p = 0.7)
     {
         $muscles_exercies_numbering = self::generate_exercie_numbering($muscle_ids, $exercies_count);
 
@@ -102,10 +111,12 @@ class PlanGeneratorController extends Controller
             $muscle = $muscles->where('id', $key)->first();
 
             if ($muscle && $value['exercies_number'] > 0) {
-                $muscle_plan = $muscle->exercies->random($value['exercies_number'])->pluck('name')->toArray();
+                self::random_exercise($muscle->exercies, 0.2, 05);
+                $muscle_plan = self::random_exercise($muscle->exercies, $top_p, $value['exercies_number'])->pluck('name')->toArray();
                 $plan = array_merge($plan, $muscle_plan);
             }
         }
+
 
         return $plan;
     }
