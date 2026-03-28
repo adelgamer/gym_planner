@@ -33,12 +33,39 @@ class PrepareDB extends Command
             $muscle_groups = array_unique($muscle_groups);
         }
 
+        $muscle_metadata = [
+            "chest" => ["cat" => "major", "side" => "front"],
+            "lats" => ["cat" => "major", "side" => "back"],
+            "middle_back" => ["cat" => "major", "side" => "back"],
+            "quadriceps" => ["cat" => "major", "side" => "lower"],
+            "shoulders" => ["cat" => "major", "side" => "front"],
+            "hamstrings" => ["cat" => "major", "side" => "lower"],
+            "glutes" => ["cat" => "major", "side" => "lower"],
+            "biceps" => ["cat" => "minor", "side" => "front"],
+            "triceps" => ["cat" => "minor", "side" => "back"],
+            "abdominals" => ["cat" => "minor", "side" => "front"],
+            "calves" => ["cat" => "minor", "side" => "lower"],
+            "traps" => ["cat" => "minor", "side" => "back"],
+            "forearms" => ["cat" => "minor", "side" => "front"],
+            "lower_back" => ["cat" => "minor", "side" => "back"],
+            "abductors" => ["cat" => "minor", "side" => "lower"],
+            "adductors" => ["cat" => "minor", "side" => "lower"],
+            "neck" => ["cat" => "minor", "side" => "back"],
+        ];
+
         foreach ($muscle_groups as $muscle) {
             $muscle_id = str_replace('-', '_', Str::slugify($muscle));
             $this->info("Muscle: $muscle, slug: $muscle_id");
-            Muscle::firstOrCreate(
+
+            $meta = $muscle_metadata[$muscle_id] ?? null;
+
+            Muscle::updateOrCreate(
                 ['id' => $muscle_id],
-                ['name' => $muscle]
+                [
+                    'name' => $muscle,
+                    'category' => $meta['cat'] ?? null,
+                    'side' => $meta['side'] ?? null,
+                ]
             );
         }
 

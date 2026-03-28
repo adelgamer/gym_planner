@@ -9,7 +9,7 @@ class Muscle extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['id', 'name'];
+    protected $fillable = ['id', 'name', 'category', 'side'];
 
     public function exercies()
     {

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('muscles', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('name', 256);
+            $table->enum('category', ['major', 'minor'])->nullable();
+            $table->enum('side', ['front', 'back', 'lower'])->nullable();
             $table->timestamps();
         });
     }
