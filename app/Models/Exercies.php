@@ -10,4 +10,12 @@ class Exercies extends Model
 {
     public $incrementing = false;
     protected $keyType = 'string';
+
+    public function muscles()
+    {
+        return $this->belongsToMany(Muscle::class, 'exercie_muscles', 'exercie_id', 'muscle_id')
+            ->using(ExercieMuscle::class)
+            ->withPivot('type')
+            ->withTimestamps();
+    }
 }

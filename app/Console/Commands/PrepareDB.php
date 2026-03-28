@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Category;
 use App\Models\Equipment;
+use App\Models\ExercieMuscle;
 use App\Models\Exercies;
 use App\Models\Muscle;
 use Illuminate\Console\Attributes\Description;
@@ -94,7 +95,7 @@ class PrepareDB extends Command
         // 5- Seeding exercies
         foreach ($exercies_json as $exercice) {
             $exercice_instrcution = implode("\n", $exercice->instructions);
-            $seeded_exercice = Exercies::firstOrCreate(['id' => $exercice->id], [
+            $seeded_exercice = Exercies::firstOrCreate(['id' => strtolower($exercice->id)], [
                 'name' => $exercice->name,
                 'instructions' => $exercice_instrcution,
                 'force' => $exercice->force,
@@ -103,6 +104,33 @@ class PrepareDB extends Command
                 'category_id' => Category::where('name', $exercice->category)->value('id'),
                 'equipment_id' => Equipment::where('name', $exercice->equipment)->value('id'),
             ]);
+        }
+
+        // 6- Seeding exercies muscle relationsip
+        foreach ($exercies_json as $exercice) {
+            // Seeding primary
+            foreach ($exercice->primaryMuscles as $primary_muscle) {
+
+                $exercice_id = strtolower($exercice->id);
+                $muscle_id = str_replace('-', '_', Str::slugify($primary_muscle));
+
+                ExercieMuscle::firstOrCreate(
+                    ['exercie_id' => $exercice_id, 'muscle_id' => $muscle_id],
+                    ["type" => 'primary']
+                );
+            }
+
+            // Seeding secondary
+            foreach ($exercice->secondaryMuscles as $secondary_muscle) {
+
+                $exercice_id = strtolower($exercice->id);
+                $muscle_id = str_replace('-', '_', Str::slugify($secondary_muscle));
+
+                ExercieMuscle::firstOrCreate(
+                    ['exercie_id' => $exercice_id, 'muscle_id' => $muscle_id],
+                    ["type" => 'secondary']
+                );
+            }
         }
     }
 }
