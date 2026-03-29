@@ -7,9 +7,11 @@ use App\Models\Equipment;
 use App\Models\ExercieMuscle;
 use App\Models\Exercies;
 use App\Models\Muscle;
+use Database\Seeders\SeedMuslceSundivisionTable;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Pest\Support\Str;
 
 #[Signature('app:prepare-db')]
@@ -22,7 +24,12 @@ class PrepareDB extends Command
     public function handle()
     {
         // 1- Read json file
-        $exercies_json = json_decode(file_get_contents(public_path('exercises.json')));
+        $file_path = public_path('exercises_with_muscles_subdivisions.json');
+        if (!file_exists($file_path)) {
+            $this->error("File not found: $file_path");
+            return;
+        }
+        $exercies_json = json_decode(file_get_contents($file_path));
         $this->info('Exercices count: ' . count($exercies_json));
 
         // 1- Extracting muscle groups
@@ -69,7 +76,6 @@ class PrepareDB extends Command
             );
         }
 
-
         // 2- all possible levels, category, equipement, force, mechanics
         $levels = [];
         $categories = [];
@@ -89,17 +95,6 @@ class PrepareDB extends Command
         $equipments = array_unique($equipments);
         $forces = array_unique($forces);
         $mechanics = array_unique($mechanics);
-
-        $this->info("\nAll unique levels identified: ");
-        print_r($levels);
-        $this->info("\nAll unique categories identified: ");
-        print_r($categories);
-        $this->info("\nAll unique equipment identified: ");
-        print_r($equipments);
-        $this->info("\nAll unique forces identified: ");
-        print_r($forces);
-        $this->info("\nAll unique mechanics identified: ");
-        print_r($mechanics);
 
         // 3- Seeding categories
         foreach ($categories as $category) {
@@ -122,7 +117,7 @@ class PrepareDB extends Command
         // 5- Seeding exercies
         foreach ($exercies_json as $exercice) {
             $exercice_instrcution = implode("\n", $exercice->instructions);
-            $seeded_exercice = Exercies::firstOrCreate(['id' => strtolower($exercice->id)], [
+            Exercies::updateOrCreate(['id' => strtolower($exercice->id)], [
                 'name' => $exercice->name,
                 'instructions' => $exercice_instrcution,
                 'force' => $exercice->force,
@@ -158,6 +153,78 @@ class PrepareDB extends Command
                     ['exercie_id' => $exercice_id, 'muscle_id' => $muscle_id],
                     ["type" => 'secondary']
                 );
+            }
+        }
+
+        // 7- Seeding submuscles
+        (new SeedMuslceSundivisionTable())->run();
+
+        // 8- Seeding exercies muscle subdivisions relationship
+        $subdivision_mapping = [
+            'upper-abs' => 'abs_upper',
+            'lower-abs' => 'abs_lower',
+            'obliques-sides' => 'abs_obliques',
+            'upper-clavicular' => 'chest_upper',
+            'middle-sternal' => 'chest_middle',
+            'lower-costal' => 'chest_lower',
+            'upper-width' => 'lats_upper',
+            'lower-thickness' => 'lats_lower',
+            'rhomboids' => 'middle_back_rhomboids',
+            'mid-traps' => 'middle_back_traps',
+            'outer-sweep-vastus-lateralis' => 'quads_outer',
+            'inner-teardrop' => 'quads_inner',
+            'rectus-femoris' => 'quads_rectus_femoris',
+            'front-anterior' => 'shoulders_front',
+            'side-lateral' => 'shoulders_side',
+            'rear-posterior' => 'shoulders_rear',
+            'medial-inner' => 'hamstrings_medial',
+            'lateral-outer' => 'hamstrings_lateral',
+            'maximus-main' => 'glutes_maximus',
+            'medius-side-upper' => 'glutes_medius',
+            'minimus' => 'glutes_minimus',
+            'long-head-outer' => 'biceps_long',
+            'short-head-inner' => 'biceps_short',
+            'brachialis' => 'biceps_brachialis',
+            'long-head-back' => 'triceps_long',
+            'lateral-head-side' => 'triceps_lateral',
+            'medial-head' => 'triceps_medial',
+            'gastrocnemius-outer' => 'calves_gastrocnemius',
+            'soleus-inner-lower' => 'calves_soleus',
+            'upper-traps' => 'traps_upper',
+            'lower-traps' => 'traps_lower',
+            'flexors-inside' => 'forearms_flexors',
+            'extensors-outside' => 'forearms_extensors',
+            'erector-spinae' => 'lower_back_erector',
+        ];
+
+        DB::table('exercie_subdivisions')->truncate();
+        foreach ($exercies_json as $exercice) {
+            $exercice_id = strtolower($exercice->id);
+
+            // Primary Subdivisions
+            if (isset($exercice->primarySubdivionMuscles)) {
+                foreach ($exercice->primarySubdivionMuscles as $sub_name) {
+                    $sub_id = $subdivision_mapping[$sub_name] ?? null;
+                    if ($sub_id) {
+                        DB::table('exercie_subdivisions')->updateOrInsert(
+                            ['exercie_id' => $exercice_id, 'subdivision_id' => $sub_id, 'type' => 'primary'],
+                            ['created_at' => now(), 'updated_at' => now()]
+                        );
+                    }
+                }
+            }
+
+            // Secondary Subdivisions
+            if (isset($exercice->secondarySubdivionMuscles)) {
+                foreach ($exercice->secondarySubdivionMuscles as $sub_name) {
+                    $sub_id = $subdivision_mapping[$sub_name] ?? null;
+                    if ($sub_id) {
+                        DB::table('exercie_subdivisions')->updateOrInsert(
+                            ['exercie_id' => $exercice_id, 'subdivision_id' => $sub_id, 'type' => 'secondary'],
+                            ['created_at' => now(), 'updated_at' => now()]
+                        );
+                    }
+                }
             }
         }
     }
