@@ -18,4 +18,12 @@ class Exercies extends Model
             ->withPivot('type')
             ->withTimestamps();
     }
+
+    public function muscleSubdivisions()
+    {
+        return $this->belongsToMany(MuscleSubdivision::class, 'exercie_subdivisions', 'exercie_id', 'subdivision_id')
+            ->using(ExercieSubdivision::class)
+            ->withPivot('type')
+            ->withTimestamps();
+    }
 }
