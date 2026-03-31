@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 #[Fillable(['name'])]
 class Equipment extends Model
 {
-    //
+    public function exercises()
+    {
+        return $this->hasMany(Exercies::class);
+    }
 }

@@ -6,7 +6,7 @@ use App\Models\Muscle;
 use Exception;
 use Illuminate\Support\Collection;
 
-class WorkoutGeneratorService
+class DayWorkoutGeneratorService
 {
     private array $muscleIds;
     private int $exerciseCount;
@@ -15,14 +15,16 @@ class WorkoutGeneratorService
     private array $numbering = [];
     private Collection $musclesData;
 
+    const BODY_WEIGHT_EQUIPMENT_ID = 1;
+
     /**
-     * WorkoutGeneratorService constructor.
+     * DayWorkoutGeneratorService constructor.
      * 
      * @param array $muscleIds List of muscle IDs to include (1-3)
      * @param int $exerciseCount Total number of exercises (3-8)
      * @param float $topP Popularity threshold (0.0-1.0)
      */
-    public function __construct(array $muscleIds, int $exerciseCount, float $topP = 0.7)
+    public function __construct(array $muscleIds, int $exerciseCount, private bool $includeBodyWeightExercises = true, float $topP = 0.7)
     {
         $this->muscleIds = $muscleIds;
         $this->exerciseCount = $exerciseCount;
@@ -37,7 +39,7 @@ class WorkoutGeneratorService
     public function generate(): Collection
     {
         // Step 1: Check if the number of muscles and exercises are valid
-        $this->validate();
+        // $this->validate();
 
         // Step 2: Decide how many exercises each muscle group (Chest, Biceps, etc.) gets
         $this->calculateNumbering();
@@ -144,7 +146,7 @@ class WorkoutGeneratorService
     {
         $this->musclesData = Muscle::whereIn('id', $this->muscleIds)->with(['exercies' => function ($query) {
             // Only pull primary exercises to keep the workout focused
-            $query->wherePivot('type', 'primary')->with('muscleSubdivisions');
+            $query->wherePivot('type', 'primary')->with(['muscleSubdivisions', 'equipment']);
         }])->get();
     }
 
@@ -175,8 +177,14 @@ class WorkoutGeneratorService
             return $exercise->muscleSubdivisions->pluck('id');
         })->unique();
 
-        // Filter 1: Reliability. Keep only exercises that meet your 'top_p' popularity threshold.
-        $filtered = $exercises->reject(fn($ex) => (($ex->popularity) / 10) < $this->topP);
+        // Filter 1: Reliability. Keep only exercises that meet your 'top_p' popularity threshold and body weight exercise condition.
+        $filtered = $exercises->reject(function ($ex) {
+            $lowPopularity = ($ex->popularity / 10) < $this->topP;
+
+            $disallowedBodyweight = !$this->includeBodyWeightExercises && $ex->equipment->id === self::BODY_WEIGHT_EQUIPMENT_ID;
+
+            return $lowPopularity || $disallowedBodyweight;
+        });
 
         // Filter 2: Variety. Try to pick exercises that don't hit the same sub-area twice.
         $nonRepeating = $filtered->reject(function ($ex) use ($submusclesHit) {

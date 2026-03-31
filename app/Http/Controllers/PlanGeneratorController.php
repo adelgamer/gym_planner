@@ -6,12 +6,12 @@ use App\Models\Muscle;
 use Exception;
 use Illuminate\Http\Request;
 
-use App\Services\WorkoutGeneratorService;
+use App\Services\DayWorkoutGeneratorService;
 
 class PlanGeneratorController extends Controller
 {
     /**
-     * Generate a workout plan using the stateful WorkoutGeneratorService.
+     * Generate a workout plan using the stateful DayWorkoutGeneratorService.
      * 
      * @param array $muscle_ids
      * @param int $exercies_count
@@ -20,8 +20,8 @@ class PlanGeneratorController extends Controller
      */
     public static function generate_day_plan(array $muscle_ids = [], int $exercies_count = 3, float $top_p = 0.7)
     {
-        $service = new WorkoutGeneratorService($muscle_ids, $exercies_count, $top_p);
-        
+        $service = new DayWorkoutGeneratorService($muscle_ids, $exercies_count, $top_p);
+
         return $service->generate();
     }
 }

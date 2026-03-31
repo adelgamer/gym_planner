@@ -26,4 +26,9 @@ class Exercies extends Model
             ->withPivot('type')
             ->withTimestamps();
     }
+
+    public function equipment()
+    {
+        return $this->belongsTo(Equipment::class);
+    }
 }
