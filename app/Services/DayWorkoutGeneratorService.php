@@ -16,6 +16,8 @@ class DayWorkoutGeneratorService
     private array $numbering = [];
     private Collection $musclesData;
 
+    private array $exerciceIdsToExclude = [];
+
     /**
      * DayWorkoutGeneratorService constructor.
      * 
@@ -211,6 +213,15 @@ class DayWorkoutGeneratorService
         }
 
         // Return a random selection from the best available candidates
-        return $filtered->random(min($choices, $filtered->count()));
+        $randomExercises = $filtered->random(min($choices, $filtered->count()));
+
+        foreach ($randomExercises as $ex) {
+            if (in_array($ex->id, $this->exerciceIdsToExclude)) {
+                return $this->pickRandomExercises($exercises, $choices);
+            }
+            $this->exerciceIdsToExclude[] = $ex->id;
+        }
+
+        return $randomExercises;
     }
 }
