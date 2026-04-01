@@ -20,10 +20,16 @@ return new class extends Migration
             $table->enum('mechanic', ['compound', 'isolation'])->nullable();
             $table->integer('popularity')->nullable(); // 0 -> 10
 
-            $table->foreignId('category_id')
-                ->nullable()
-                ->constrained()
-                ->nullOnDelete();
+            // Replaced category_id with a category enum
+            $table->enum('category', [
+                'strength',
+                'stretching',
+                'plyometrics',
+                'strongman',
+                'powerlifting',
+                'cardio',
+                'olympic weightlifting'
+            ])->nullable();
 
             $table->foreignId('equipment_id')
                 ->nullable()

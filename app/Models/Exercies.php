@@ -2,14 +2,19 @@
 
 namespace App\Models;
 
+use App\Enums\ExercieCategory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['id', 'name', 'instructions', 'force', 'level', 'mechanic', 'popularity', 'category_id', 'equipment_id'])]
+#[Fillable(['id', 'name', 'instructions', 'force', 'level', 'mechanic', 'popularity', 'category', 'equipment_id'])]
 class Exercies extends Model
 {
     public $incrementing = false;
     protected $keyType = 'string';
+
+    protected $casts = [
+        'category' => ExercieCategory::class,
+    ];
 
     public function muscles()
     {

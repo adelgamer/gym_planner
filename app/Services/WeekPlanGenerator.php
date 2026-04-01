@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
+use App\Enums\EquipmentSelection;
 
 class WeekPlanGenerator
 {
@@ -10,17 +11,24 @@ class WeekPlanGenerator
   /*
   Testing
   use App\Services\WeekPlanGenerator;
-  $plan = (new WeekPlanGenerator(3))->returnFullExercieseObject(false)->generate();
+  use App\Services\WorkoutPreferences;
+  use App\Enums\Difficulty;
+  use App\Enums\EquipmentSelection;
+  $plan = (new WeekPlanGenerator(3, new WorkoutPreferences(
+    fullExerciseObject: false, 
+    difficulty: Difficulty::BEGINNER,
+    equipmentSelection: EquipmentSelection::GYM
+  )))->generate();
   */
 
   private array $split = [];
   private array $full_plan = [];
-  private bool $fullExerciseObject = false;
-  private bool $includeBodyWeightExercises = true;
 
-  public function __construct(public int $daysPerWeek)
-  {
-    self::getWeeklySplitPlan();
+  public function __construct(
+    public int $daysPerWeek,
+    private WorkoutPreferences $prefs = new WorkoutPreferences()
+  ) {
+    $this->getWeeklySplitPlan();
   }
 
   private function randomNumberOfExercies()
@@ -34,15 +42,21 @@ class WeekPlanGenerator
     return $splits[$randomKey];
   }
 
+  /**
+   * @deprecated use WorkoutPreferences in constructor instead
+   */
   public function returnFullExercieseObject(bool $value)
   {
-    $this->fullExerciseObject = $value;
+    $this->prefs->fullExerciseObject = $value;
     return $this;
   }
 
-  public function isIncludeBodyWeightExercises(bool $value)
+  /**
+   * @deprecated use WorkoutPreferences in constructor instead
+   */
+  public function setEquipmentSelection(EquipmentSelection $selection)
   {
-    $this->includeBodyWeightExercises = $value;
+    $this->prefs->equipmentSelection = $selection;
     return $this;
   }
 
@@ -60,21 +74,21 @@ class WeekPlanGenerator
 
         [ // Push / Pull / Legs
           "day_1" => ["muscles" => ['chest', 'shoulders', 'triceps'], "exerciesesCount" => self::randomNumberOfExercies()], // Push
-          "day_2" => ["muscles" => ['lats', 'middle_back', 'biceps', 'traps'], "exerciesesCount" => self::randomNumberOfExercies()], // Pull
+          "day_2" => ["muscles" => ['lats', 'middle_back', 'biceps'], "exerciesesCount" => self::randomNumberOfExercies()], // Pull
           "day_3" => ["muscles" => ['quadriceps', 'hamstrings', 'glutes', 'abdominals', 'calves'], "exerciesesCount" => self::randomNumberOfExercies()], // Legs
         ],
 
-        [ // Full Body
-          "day_1" => ["muscles" => ['chest', 'lats', 'shoulders', 'quadriceps', 'abdominals'], "exerciesesCount" => self::randomNumberOfExercies()],
-          "day_2" => ["muscles" => ['middle_back', 'triceps', 'biceps', 'hamstrings', 'calves'], "exerciesesCount" => self::randomNumberOfExercies()],
-          "day_3" => ["muscles" => ['chest', 'lats', 'shoulders', 'glutes', 'abdominals'], "exerciesesCount" => self::randomNumberOfExercies()],
-        ],
+        // [ // Full Body
+        //   "day_1" => ["muscles" => ['chest', 'lats', 'shoulders', 'quadriceps', 'abdominals'], "exerciesesCount" => self::randomNumberOfExercies()],
+        //   "day_2" => ["muscles" => ['middle_back', 'triceps', 'biceps', 'hamstrings', 'calves'], "exerciesesCount" => self::randomNumberOfExercies()],
+        //   "day_3" => ["muscles" => ['chest', 'lats', 'shoulders', 'glutes', 'abdominals'], "exerciesesCount" => self::randomNumberOfExercies()],
+        // ],
 
-        [ // Upper / Lower / Full
-          "day_1" => ["muscles" => ['chest', 'lats', 'middle_back', 'shoulders', 'triceps', 'biceps'], "exerciesesCount" => self::randomNumberOfExercies()], // Upper
-          "day_2" => ["muscles" => ['quadriceps', 'hamstrings', 'glutes', 'calves', 'abductors', 'adductors'], "exerciesesCount" => self::randomNumberOfExercies()], // Lower
-          "day_3" => ["muscles" => ['chest', 'lats', 'shoulders', 'quadriceps', 'hamstrings', 'abdominals'], "exerciesesCount" => self::randomNumberOfExercies()], // Full
-        ],
+        // [ // Upper / Lower / Full
+        //   "day_1" => ["muscles" => ['chest', 'lats', 'middle_back', 'shoulders', 'triceps', 'biceps'], "exerciesesCount" => self::randomNumberOfExercies()], // Upper
+        //   "day_2" => ["muscles" => ['quadriceps', 'hamstrings', 'glutes', 'calves', 'abductors', 'adductors'], "exerciesesCount" => self::randomNumberOfExercies()], // Lower
+        //   "day_3" => ["muscles" => ['chest', 'lats', 'shoulders', 'quadriceps', 'hamstrings', 'abdominals'], "exerciesesCount" => self::randomNumberOfExercies()], // Full
+        // ],
 
       ]),
 
@@ -183,10 +197,12 @@ class WeekPlanGenerator
       $day_plan = (new DayWorkoutGeneratorService(
         $day['muscles'],
         $day['exerciesesCount'],
-        includeBodyWeightExercises: $this->includeBodyWeightExercises
-      ))->generate();
+        $this->prefs
+      ));
 
-      if (!$this->fullExerciseObject) {
+      $day_plan = $day_plan->generate();
+
+      if (!$this->prefs->fullExerciseObject) {
 
         $this->full_plan[$key] = [
           "muscles" => $day['muscles'],

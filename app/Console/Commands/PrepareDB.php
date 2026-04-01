@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Category;
 use App\Models\Equipment;
 use App\Models\ExercieMuscle;
 use App\Models\Exercies;
@@ -15,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Pest\Support\Str;
 
 #[Signature('app:prepare-db')]
-#[Description('Command description')]
+#[Description('Seed the workout database from the exercises JSON file.')]
 class PrepareDB extends Command
 {
     /**
@@ -76,34 +75,12 @@ class PrepareDB extends Command
             );
         }
 
-        // 2- all possible levels, category, equipement, force, mechanics
-        $levels = [];
-        $categories = [];
+        // 2- Extraction of equipments
         $equipments = [];
-        $forces = [];
-        $mechanics = [];
         foreach ($exercies_json as $exercice) {
-            $levels[] = $exercice->level;
-            $categories[] = $exercice->category;
             $equipments[] = $exercice->equipment;
-            $forces[] = $exercice->force;
-            $mechanics[] = $exercice->mechanic;
         }
-
-        $levels = array_unique($levels);
-        $categories = array_unique($categories);
         $equipments = array_unique($equipments);
-        $forces = array_unique($forces);
-        $mechanics = array_unique($mechanics);
-
-        // 3- Seeding categories
-        foreach ($categories as $category) {
-            if ($category) {
-                Category::firstOrCreate(
-                    ['name' => $category]
-                );
-            }
-        }
 
         // 4- Seeding equipment
         foreach ($equipments as $equipment) {
@@ -124,7 +101,7 @@ class PrepareDB extends Command
                 'level' => $exercice->level,
                 'mechanic' => $exercice->mechanic,
                 'popularity' => $exercice->popularity,
-                'category_id' => Category::where('name', $exercice->category)->value('id'),
+                'category' => $exercice->category, // Saved directly as string (cast to Enum in model)
                 'equipment_id' => Equipment::where('name', $exercice->equipment)->value('id'),
             ]);
         }

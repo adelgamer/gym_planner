@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Enums\Difficulty;
+use App\Enums\ExercieCategory;
 use App\Models\Muscle;
 use Exception;
 use Illuminate\Support\Collection;
@@ -10,25 +12,20 @@ class DayWorkoutGeneratorService
 {
     private array $muscleIds;
     private int $exerciseCount;
-    private float $topP;
     private Collection $plan;
     private array $numbering = [];
     private Collection $musclesData;
-
-    const BODY_WEIGHT_EQUIPMENT_ID = 1;
 
     /**
      * DayWorkoutGeneratorService constructor.
      * 
      * @param array $muscleIds List of muscle IDs to include (1-3)
      * @param int $exerciseCount Total number of exercises (3-8)
-     * @param float $topP Popularity threshold (0.0-1.0)
      */
-    public function __construct(array $muscleIds, int $exerciseCount, private bool $includeBodyWeightExercises = true, float $topP = 0.7)
+    public function __construct(array $muscleIds, int $exerciseCount, private WorkoutPreferences $prefs)
     {
         $this->muscleIds = $muscleIds;
         $this->exerciseCount = $exerciseCount;
-        $this->topP = $topP;
         $this->plan = collect([]);
     }
 
@@ -177,13 +174,29 @@ class DayWorkoutGeneratorService
             return $exercise->muscleSubdivisions->pluck('id');
         })->unique();
 
-        // Filter 1: Reliability. Keep only exercises that meet your 'top_p' popularity threshold and body weight exercise condition.
+        // Filter 1: Reliability & Preferences. Keep only exercises that meet the 'top_p' popularity threshold, 
+        // equipment preferences, and the selected difficulty level.
         $filtered = $exercises->reject(function ($ex) {
-            $lowPopularity = ($ex->popularity / 10) < $this->topP;
+            $lowPopularity = ($ex->popularity / 10) < $this->prefs->topP; // Skip if exercise popularity is below threshold
 
-            $disallowedBodyweight = !$this->includeBodyWeightExercises && $ex->equipment->id === self::BODY_WEIGHT_EQUIPMENT_ID;
+            // Use the new EquipmentSelection enum to decide if the equipment is allowed
+            $disallowBasedEquipment = !in_array($ex->equipment_id, $this->prefs->equipmentSelection->getAllowedIds());
 
-            return $lowPopularity || $disallowedBodyweight;
+            $disallowBasedDifficulty = false;
+            // Filter by difficulty level if it's set to something other than 'ALL'
+            if ($this->prefs->difficulty !== Difficulty::ALL) {
+                // Must compare string from DB against enum value
+                $disallowBasedDifficulty = $ex->level !== $this->prefs->difficulty->value;
+            }
+
+            $disallowBasedCategory = false;
+            // Filter by category level if it's set to something other than 'ALL'
+            if ($this->prefs->exercieCategory !== ExercieCategory::ALL) {
+                // Since $ex->category is cast to ExercieCategory enum in the model, compare directly.
+                $disallowBasedCategory = $ex->category !== $this->prefs->exercieCategory;
+            }
+
+            return $lowPopularity || $disallowBasedEquipment || $disallowBasedDifficulty || $disallowBasedCategory;
         });
 
         // Filter 2: Variety. Try to pick exercises that don't hit the same sub-area twice.

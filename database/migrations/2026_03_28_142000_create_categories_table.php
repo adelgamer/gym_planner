@@ -11,11 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 256);
-            $table->timestamps();
-        });
+        // Category table is no longer needed as it's replaced by an Enum in the exercies table.
     }
 
     /**
