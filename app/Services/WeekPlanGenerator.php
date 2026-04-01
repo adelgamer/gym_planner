@@ -23,6 +23,7 @@ class WeekPlanGenerator
 
   private array $split = [];
   private array $full_plan = [];
+  private array $exerciceIdsToExclude = [];
 
   public function __construct(
     public int $daysPerWeek,
@@ -197,6 +198,7 @@ class WeekPlanGenerator
       $day_plan = (new DayWorkoutGeneratorService(
         $day['muscles'],
         $day['exerciesesCount'],
+        $this->exerciceIdsToExclude,
         $this->prefs
       ));
 
@@ -215,6 +217,9 @@ class WeekPlanGenerator
           "exercies" => $day_plan->toArray()
         ];
       }
+
+      // Appending the exercies ids to not select them again
+      $this->exerciceIdsToExclude = array_merge($this->exerciceIdsToExclude, $day_plan->pluck('id')->toArray());
     }
 
     return $this->full_plan;

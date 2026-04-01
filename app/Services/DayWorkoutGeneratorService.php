@@ -16,15 +16,13 @@ class DayWorkoutGeneratorService
     private array $numbering = [];
     private Collection $musclesData;
 
-    private array $exerciceIdsToExclude = [];
-
     /**
      * DayWorkoutGeneratorService constructor.
      * 
      * @param array $muscleIds List of muscle IDs to include (1-3)
      * @param int $exerciseCount Total number of exercises (3-8)
      */
-    public function __construct(array $muscleIds, int $exerciseCount, private WorkoutPreferences $prefs)
+    public function __construct(array $muscleIds, int $exerciseCount,  private array $exerciceIdsToExclude = [], private WorkoutPreferences $prefs)
     {
         $this->muscleIds = $muscleIds;
         $this->exerciseCount = $exerciseCount;
@@ -159,7 +157,7 @@ class DayWorkoutGeneratorService
 
             // If this muscle is scheduled to have exercises, pick them
             if ($muscle && $value['exercies_number'] > 0) {
-                $musclePlan = $this->pickRandomExercises($muscle->exercies, $value['exercies_number']);
+                $musclePlan = $this->pickRandomExercises($muscle->exercies, $value['exercies_number'], $this->prefs->topP);
                 // Keep adding to the master plan collection
                 $this->plan = $this->plan->concat($musclePlan);
             }
@@ -169,7 +167,7 @@ class DayWorkoutGeneratorService
     /**
      * The core picking logic. It handles quality filtering (topP) and variety (subdivisions).
      */
-    private function pickRandomExercises($exercises, int $choices): Collection
+    private function pickRandomExercises($exercises, int $choices, float $top_p): Collection
     {
         // Check which parts of muscles (e.g. Upper Chest, Lower Abs) are already targeted
         $submusclesHit = $this->plan->flatMap(function ($exercise) {
@@ -178,8 +176,8 @@ class DayWorkoutGeneratorService
 
         // Filter 1: Reliability & Preferences. Keep only exercises that meet the 'top_p' popularity threshold, 
         // equipment preferences, and the selected difficulty level.
-        $filtered = $exercises->reject(function ($ex) {
-            $lowPopularity = ($ex->popularity / 10) < $this->prefs->topP; // Skip if exercise popularity is below threshold
+        $filtered = $exercises->reject(function ($ex) use ($top_p) {
+            $lowPopularity = ($ex->popularity / 10) < $top_p; // Skip if exercise popularity is below threshold
 
             // Use the new EquipmentSelection enum to decide if the equipment is allowed
             $disallowBasedEquipment = !in_array($ex->equipment_id, $this->prefs->equipmentSelection->getAllowedIds());
@@ -217,9 +215,13 @@ class DayWorkoutGeneratorService
 
         foreach ($randomExercises as $ex) {
             if (in_array($ex->id, $this->exerciceIdsToExclude)) {
-                return $this->pickRandomExercises($exercises, $choices);
+                return $this->pickRandomExercises($exercises, $choices, $top_p);
             }
             $this->exerciceIdsToExclude[] = $ex->id;
+        }
+
+        if ($randomExercises->count() === 0 && $top_p > 0) {
+            return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
         }
 
         return $randomExercises;
