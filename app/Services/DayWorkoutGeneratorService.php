@@ -176,6 +176,8 @@ class DayWorkoutGeneratorService
 
     /**
      * The core picking logic. It handles quality filtering (topP) and variety (subdivisions).
+     * This method picks a single exercise at a time and ensures variety by checking 
+     * the existing plan for sub-muscles and families already targeted.
      */
     private function pickRandomExercises($exercises, float $top_p, int $attempt = 0): Collection
     {
@@ -193,34 +195,45 @@ class DayWorkoutGeneratorService
             return $isSubMuscleHit || $isSameFamilyExHit;
         });
 
-        // If we found enough 'unique' exercises, use them. 
-        // Otherwise, fall back to the basic filtered list to fulfill the count.
+        // Filter 1: Reliability & Variety.
         $one_exercise = 1;
-        if ($nonRepeating->count() >= $one_exercise) {
+        if ($nonRepeating->isNotEmpty()) {
             $filtered = $nonRepeating;
-        } else if ($nonRepeating->count() < $one_exercise && $top_p > 0) {
+        } else if ($top_p > 0) {
             return $this->pickRandomExercises($exercises, $top_p - 0.1, $attempt);
+        } else if ($this->prefs->isStrict) {
+            return collect([]);
         }
 
         // Return a random selection from the best available candidates
         $randomExercises = $filtered->random(min($one_exercise, $filtered->count()));
 
-        // Choose unique exercieses from the entire week
+        // Constraint 1: Weekly Uniqueness. Prevent picking an exercise already scheduled for this week.
         foreach ($randomExercises as $ex) {
-            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt < self::MAX_ATTEMPT) {
-                $attempt++;
-                return $this->pickRandomExercises($exercises, $top_p, $attempt);
+            if (in_array($ex->id, $this->exerciceIdsToExclude)) {
+                if ($attempt < self::MAX_ATTEMPT) {
+                    $attempt++;
+                    return $this->pickRandomExercises($exercises, $top_p, $attempt);
+                }
+                
+                if ($this->prefs->isStrict) {
+                    return collect([]);
+                }
             }
             $this->exerciceIdsToExclude[] = $ex->id;
         }
-        if ($randomExercises->count() === 0 && $top_p > 0) {
+
+        if ($randomExercises->isEmpty() && $top_p > 0) {
             return $this->pickRandomExercises($exercises, $top_p - 0.1, $attempt);
+        } else if ($randomExercises->isEmpty() && $this->prefs->isStrict) {
+            return collect([]);
         }
 
-        // If there is no single isolation exercise then recreate
+        // Constraint 2: Mechanic Balance. For the final exercise of a muscle group, ensure an isolation exercise is present.
         $targetMuscle = $exercises->first()?->muscles()?->wherePivot('type', 'primary')->first();
         if (!$targetMuscle) return $randomExercises;
 
+        // Collect all mechanics used for this specific muscle in the current day's plan
         $exercisesTypeMovementForTargetMuscle = $this->plan
             ->reject(function ($ex) use ($targetMuscle) {
                 $primaryMuscle = $ex->muscles->where('pivot.type', 'primary')->first();
@@ -230,16 +243,23 @@ class DayWorkoutGeneratorService
             ->map(fn($m) => is_object($m) ? $m->value : (string)$m)
             ->toArray();
 
-        // Include the current pick's mechanic
-        $currentMechanic = $randomExercises->first()->mechanic;
+        // Include our current selection in the balance check
+        $currentMechanic = $randomExercises->first()?->mechanic;
         $exercisesTypeMovementForTargetMuscle[] = is_object($currentMechanic) ? $currentMechanic->value : (string)$currentMechanic;
-
+        
         $totalExpected = $this->numbering[$targetMuscle->id]['exercies_number'] ?? 0;
         $isLastPickForMuscle = count($exercisesTypeMovementForTargetMuscle) >= $totalExpected;
+        $hasIsolation = in_array(StartWithExercise::ISOLATION->value, $exercisesTypeMovementForTargetMuscle);
 
-        if ($isLastPickForMuscle && !in_array(StartWithExercise::ISOLATION->value, $exercisesTypeMovementForTargetMuscle) && $attempt < self::MAX_ATTEMPT) {
-            $attempt++;
-            return $this->pickRandomExercises($exercises, $top_p, $attempt);
+        if ($isLastPickForMuscle && !$hasIsolation) {
+            if ($attempt < self::MAX_ATTEMPT) {
+                $attempt++;
+                return $this->pickRandomExercises($exercises, $top_p, $attempt);
+            }
+
+            if ($this->prefs->isStrict) {
+                return collect([]);
+            }
         }
 
         return $randomExercises;

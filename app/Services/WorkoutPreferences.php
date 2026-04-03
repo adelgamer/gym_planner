@@ -15,6 +15,7 @@ class WorkoutPreferences
         public Difficulty $difficulty = Difficulty::ALL,
         public bool $fullExerciseObject = false,
         public ExercieCategory $exercieCategory = ExercieCategory::ALL,
-        public StartWithExercise $startWithExercise = StartWithExercise::COMPOUND
+        public StartWithExercise $startWithExercise = StartWithExercise::COMPOUND,
+        public bool $isStrict = false,
     ) {}
 }

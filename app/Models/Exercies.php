@@ -38,4 +38,14 @@ class Exercies extends Model
     {
         return $this->belongsTo(Equipment::class);
     }
+
+    /**
+     * Helper to always return the mechanic as a string, 
+     * even if it's stored as an Enum in the future.
+     */
+    public function getMechanicStringAttribute(): ?string
+    {
+        $mechanic = $this->mechanic;
+        return is_object($mechanic) ? $mechanic->value : (string)$mechanic;
+    }
 }
