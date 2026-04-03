@@ -171,23 +171,7 @@ class DayWorkoutGeneratorService
             }
         }
 
-        // Order compound and isolation: compound first, isolation second
-        $this->plan = $this->plan->sortBy(function ($exercise) {
-
-            $primaryMuscle = $exercise->muscles
-                ->firstWhere('pivot.type', 'primary');
-
-            $mechanicOrder = $exercise->mechanic;
-
-            if ($this->prefs->startWithExercise === StartWithExercise::ISOLATION) {
-                $mechanicOrder = -$mechanicOrder;
-            }
-
-            return [
-                $primaryMuscle->id,
-                $mechanicOrder
-            ];
-        });
+        $this->reorderExercisesBasedOnMechanics();
     }
 
     /**
@@ -297,5 +281,51 @@ class DayWorkoutGeneratorService
         });
 
         return $filtered;
+    }
+
+    private function reorderExercisesBasedOnMechanics()
+    {
+        // Step 1: remember the original muscle order
+        $muscleOrder = $this->plan
+            ->map(function ($exercise) {
+                return $exercise->muscles
+                    ->firstWhere('pivot.type', 'primary')
+                    ->id;
+            })
+            ->unique()
+            ->values();
+
+
+        // Step 2: group exercises by primary muscle
+        $grouped = $this->plan->groupBy(function ($exercise) {
+            return $exercise->muscles
+                ->firstWhere('pivot.type', 'primary')
+                ->id;
+        });
+
+
+        // Step 3: rebuild the plan preserving muscle order
+        $sortedPlan = collect();
+
+        foreach ($muscleOrder as $muscleId) {
+
+            if (!isset($grouped[$muscleId])) {
+                continue;
+            }
+
+            $group = $grouped[$muscleId];
+
+            if ($this->prefs->startWithExercise === StartWithExercise::COMPOUND) {
+                $group = $group->sortBy('mechanic');
+            } else if ($this->prefs->startWithExercise === StartWithExercise::ISOLATION) {
+                $group = $group->sortByDesc('mechanic');
+            }
+
+            $sortedPlan = $sortedPlan->concat($group);
+        }
+
+
+        // Step 4: replace plan
+        $this->plan = $sortedPlan->values();
     }
 }
