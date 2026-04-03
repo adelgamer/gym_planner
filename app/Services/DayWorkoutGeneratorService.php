@@ -220,7 +220,18 @@ class DayWorkoutGeneratorService
         $top_p = $this->prefs->topP;
 
         // If there is no single isolation exercise then recreate
-        if (!in_array(StartWithExercise::ISOLATION, $randomExercises->pluck('mechanic')->toArray()) && $attempt >= self::MAX_ATTEMPT) {
+        $targetMuslce = $exercises->first()->muscles()->wherePivot('type', 'primary')->first();
+        $exercisesTypeMovementForTargetMuscle = $this->plan
+            ->reject(
+                fn($ex) =>
+                $ex->muscles()
+                    ->wherePivot('type', 'primary')
+                    ->first()
+                    ->id !== $targetMuslce->id
+            )
+            ->pluck('mechanic')
+            ->toArray();
+        if (!in_array(StartWithExercise::ISOLATION, $exercisesTypeMovementForTargetMuscle) && $attempt >= self::MAX_ATTEMPT) {
             $attempt++;
             return $this->pickRandomExercises($exercises, $top_p, $attempt);
         }
