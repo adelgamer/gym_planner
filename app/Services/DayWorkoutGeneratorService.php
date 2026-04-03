@@ -170,6 +170,24 @@ class DayWorkoutGeneratorService
                 };
             }
         }
+
+        // Order compound and isolation: compound first, isolation second
+        $this->plan = $this->plan->sortBy(function ($exercise) {
+
+            $primaryMuscle = $exercise->muscles
+                ->firstWhere('pivot.type', 'primary');
+
+            $mechanicOrder = $exercise->mechanic;
+
+            if ($this->prefs->startWithExercise === StartWithExercise::ISOLATION) {
+                $mechanicOrder = -$mechanicOrder;
+            }
+
+            return [
+                $primaryMuscle->id,
+                $mechanicOrder
+            ];
+        });
     }
 
     /**
@@ -236,16 +254,6 @@ class DayWorkoutGeneratorService
             return $this->pickRandomExercises($exercises, $top_p, $attempt);
         }
         $attempt = 0;
-
-        // Order compound and isolation
-        if ($this->prefs->startWithExercise !== StartWithExercise::ALL) {
-            if ($this->prefs->startWithExercise === StartWithExercise::COMPOUND) {
-                $randomExercises = $randomExercises->sortBy('mechanic');
-            } else {
-                $randomExercises = $randomExercises->sortByDesc('mechanic');
-            }
-        }
-
 
         return $randomExercises;
     }
