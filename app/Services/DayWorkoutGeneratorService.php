@@ -207,7 +207,7 @@ class DayWorkoutGeneratorService
 
         // Choose unique exercieses from the entire week
         foreach ($randomExercises as $ex) {
-            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt > self::MAX_ATTEMPT) {
+            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt < self::MAX_ATTEMPT) {
                 $attempt++;
                 return $this->pickRandomExercises($exercises, $top_p, $attempt);
             }
@@ -222,7 +222,7 @@ class DayWorkoutGeneratorService
         if (!$targetMuscle) return $randomExercises;
 
         $exercisesTypeMovementForTargetMuscle = $this->plan
-            ->reject(function($ex) use ($targetMuscle) {
+            ->reject(function ($ex) use ($targetMuscle) {
                 $primaryMuscle = $ex->muscles->where('pivot.type', 'primary')->first();
                 return !$primaryMuscle || $primaryMuscle->id !== $targetMuscle->id;
             })
@@ -233,7 +233,7 @@ class DayWorkoutGeneratorService
         // Include the current pick's mechanic
         $currentMechanic = $randomExercises->first()->mechanic;
         $exercisesTypeMovementForTargetMuscle[] = is_object($currentMechanic) ? $currentMechanic->value : (string)$currentMechanic;
-        
+
         $totalExpected = $this->numbering[$targetMuscle->id]['exercies_number'] ?? 0;
         $isLastPickForMuscle = count($exercisesTypeMovementForTargetMuscle) >= $totalExpected;
 
@@ -251,9 +251,7 @@ class DayWorkoutGeneratorService
         $submusclesHit = $this->plan->flatMap(function ($exercise) {
             return $exercise->muscleSubdivisions->pluck('id');
         })->unique();
-        $exerciseFamilyHit = $this->plan->flatMap(function ($exercise) {
-            return $exercise->exercise_family;
-        })->unique();
+        $exerciseFamilyHit = $this->plan->pluck('exercise_family')->unique()->filter();
 
         return [$submusclesHit, $exerciseFamilyHit];
     }
