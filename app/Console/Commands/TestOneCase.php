@@ -32,7 +32,7 @@ class TestOneCase extends Command
         $days = 3;
         $difficulty = Difficulty::ALL;
         $equipment = EquipmentSelection::GYM;
-        $topP = 0.9;
+        $topP = 0.8;
 
         $this->info("==================================================");
         $this->info("          TESTING SINGLE SPECIFIC CASE");
@@ -80,7 +80,7 @@ class TestOneCase extends Command
                 foreach ($data['exercies'] as $ex) {
                     $name = is_array($ex) ? $ex['name'] : $ex->name;
                     $family = is_array($ex) ? ($ex['exercise_family'] ?? '-') : ($ex->exercise_family->value ?? '-');
-                    
+
                     // Fetch muscle name (assuming relation might be loaded or triggered)
                     $muscle = '-';
                     if (is_array($ex) && !empty($ex['muscles'])) {
@@ -91,7 +91,7 @@ class TestOneCase extends Command
                     }
 
                     $pop = is_array($ex) ? $ex['popularity'] : $ex->popularity;
-                    
+
                     $equip = '-';
                     if (is_array($ex) && isset($ex['equipment'])) {
                         $equip = $ex['equipment']['name'];
@@ -100,7 +100,7 @@ class TestOneCase extends Command
                     }
 
                     $mech = is_array($ex) ? $ex['mechanic'] : $ex->mechanic;
-                    
+
                     $subds = [];
                     if (is_array($ex) && isset($ex['muscle_subdivisions'])) {
                         $subds = array_column($ex['muscle_subdivisions'], 'name');
