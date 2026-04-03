@@ -175,6 +175,7 @@ class DayWorkoutGeneratorService
         $submusclesHit = $this->plan->flatMap(function ($exercise) {
             return $exercise->muscleSubdivisions->pluck('id');
         })->unique();
+        // print_r($submusclesHit->toArray());
 
         // Filter 1: Reliability & Preferences. Keep only exercises that meet the 'top_p' popularity threshold, 
         // equipment preferences, and the selected difficulty level.
@@ -210,7 +211,10 @@ class DayWorkoutGeneratorService
         // Otherwise, fall back to the basic filtered list to fulfill the count.
         if ($nonRepeating->count() >= $choices) {
             $filtered = $nonRepeating;
+        } else if ($nonRepeating->count() < $choices && $top_p > 0) {
+            return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
         }
+        $top_p = $this->prefs->topP;
 
         // Return a random selection from the best available candidates
         $randomExercises = $filtered->random(min($choices, $filtered->count()));
