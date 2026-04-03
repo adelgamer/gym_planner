@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Enums\Difficulty;
 use App\Enums\ExercieCategory;
+use App\Enums\StartWithExercise;
 use App\Models\Muscle;
 use Exception;
 use Illuminate\Support\Collection;
@@ -167,7 +168,7 @@ class DayWorkoutGeneratorService
     /**
      * The core picking logic. It handles quality filtering (topP) and variety (subdivisions).
      */
-    private function pickRandomExercises($exercises, int $choices, float $top_p): Collection
+    private function pickRandomExercises($exercises, int $choices, float $top_p, int $attempt = 0): Collection
     {
         // Check which parts of muscles (e.g. Upper Chest, Lower Abs) are already targeted
         $submusclesHit = $this->plan->flatMap(function ($exercise) {
@@ -223,6 +224,24 @@ class DayWorkoutGeneratorService
         if ($randomExercises->count() === 0 && $top_p > 0) {
             return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
         }
+        $top_p = $this->prefs->topP;
+
+        // If there is no single isolation exercise then recreate
+        if (!in_array(StartWithExercise::ISOLATION, $randomExercises->pluck('mechanic')->toArray()) && $attempt >= 10) {
+            $attempt++;
+            return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
+        }
+        $attempt = 0;
+
+        // Order compound and isolation
+        if ($this->prefs->startWithExercise !== StartWithExercise::ALL) {
+            if ($this->prefs->startWithExercise === StartWithExercise::COMPOUND) {
+                $randomExercises = $randomExercises->sortBy('mechanic');
+            } else {
+                $randomExercises = $randomExercises->sortByDesc('mechanic');
+            }
+        }
+
 
         return $randomExercises;
     }
