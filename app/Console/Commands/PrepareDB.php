@@ -23,7 +23,7 @@ class PrepareDB extends Command
     public function handle()
     {
         // 1- Read json file
-        $file_path = public_path('exercises_with_muscles_subdivisions.json');
+        $file_path = public_path('exercises_v2.json');
         if (!file_exists($file_path)) {
             $this->error("File not found: $file_path");
             return;
@@ -102,6 +102,7 @@ class PrepareDB extends Command
                 'mechanic' => $exercice->mechanic,
                 'popularity' => $exercice->popularity,
                 'category' => $exercice->category, // Saved directly as string (cast to Enum in model)
+                'exercise_family' => $exercice->exercise_family, // Saved directly as string (cast to Enum in model)
                 'equipment_id' => Equipment::where('name', $exercice->equipment)->value('id'),
             ]);
         }

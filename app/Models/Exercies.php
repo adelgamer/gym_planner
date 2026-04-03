@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\Enums\ExercieCategory;
+use App\Enums\ExerciseFamily;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['id', 'name', 'instructions', 'force', 'level', 'mechanic', 'popularity', 'category', 'equipment_id'])]
+#[Fillable(['id', 'name', 'instructions', 'force', 'level', 'mechanic', 'popularity', 'category', 'exercise_family', 'equipment_id'])]
 class Exercies extends Model
 {
     public $incrementing = false;
@@ -14,6 +15,7 @@ class Exercies extends Model
 
     protected $casts = [
         'category' => ExercieCategory::class,
+        'exercise_family' => ExerciseFamily::class,
     ];
 
     public function muscles()

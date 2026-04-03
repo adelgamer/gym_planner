@@ -75,6 +75,10 @@ class DayWorkoutGeneratorService
         // Sort muscles so majors are processed first
         $muscles = Muscle::whereIn('id', $this->muscleIds)->orderBy('category', 'asc')->get();
 
+        if ($muscles->isEmpty()) {
+            throw new Exception("No valid muscles found in database for IDs: " . implode(', ', $this->muscleIds));
+        }
+
         $majorIds = [];
         $minorIds = [];
 
@@ -221,7 +225,7 @@ class DayWorkoutGeneratorService
 
         // Choose unique exercieses from the entire week
         foreach ($randomExercises as $ex) {
-            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt >= self::MAX_ATTEMPT) {
+            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt < self::MAX_ATTEMPT) {
                 $attempt++;
                 return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
             }
@@ -235,7 +239,7 @@ class DayWorkoutGeneratorService
         $top_p = $this->prefs->topP;
 
         // If there is no single isolation exercise then recreate
-        if (!in_array(StartWithExercise::ISOLATION, $randomExercises->pluck('mechanic')->toArray()) && $attempt >= self::MAX_ATTEMPT) {
+        if (!in_array(StartWithExercise::ISOLATION, $randomExercises->pluck('mechanic')->toArray()) && $attempt < self::MAX_ATTEMPT) {
             $attempt++;
             return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
         }
