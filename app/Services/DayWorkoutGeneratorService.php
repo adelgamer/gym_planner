@@ -149,7 +149,7 @@ class DayWorkoutGeneratorService
     {
         $this->musclesData = Muscle::whereIn('id', $this->muscleIds)->with(['exercies' => function ($query) {
             // Only pull primary exercises to keep the workout focused
-            $query->wherePivot('type', 'primary')->with(['muscleSubdivisions', 'equipment']);
+            $query->wherePivot('type', 'primary')->with(['muscleSubdivisions', 'equipment', 'muscles']);
         }])->get();
     }
 
@@ -163,9 +163,11 @@ class DayWorkoutGeneratorService
 
             // If this muscle is scheduled to have exercises, pick them
             if ($muscle && $value['exercies_number'] > 0) {
-                $musclePlan = $this->pickRandomExercises($muscle->exercies, $value['exercies_number'], $this->prefs->topP);
-                // Keep adding to the master plan collection
-                $this->plan = $this->plan->concat($musclePlan);
+                for ($i = 0; $i < $value['exercies_number']; $i++) {
+                    // Keep adding to the master plan collection
+                    $musclePlan = $this->pickRandomExercises($muscle->exercies, $this->prefs->topP);
+                    $this->plan = $this->plan->concat($musclePlan);
+                };
             }
         }
     }
@@ -173,7 +175,7 @@ class DayWorkoutGeneratorService
     /**
      * The core picking logic. It handles quality filtering (topP) and variety (subdivisions).
      */
-    private function pickRandomExercises($exercises, int $choices, float $top_p, int $attempt = 0): Collection
+    private function pickRandomExercises($exercises, float $top_p, int $attempt = 0): Collection
     {
         // Check which parts of muscles (e.g. Upper Chest, Lower Abs) are already targeted
         [$submusclesHit, $exerciseFamilyHit] = $this->getHitData();
@@ -191,35 +193,36 @@ class DayWorkoutGeneratorService
 
         // If we found enough 'unique' exercises, use them. 
         // Otherwise, fall back to the basic filtered list to fulfill the count.
-        if ($nonRepeating->count() >= $choices) {
+        $one_exercise = 1;
+        if ($nonRepeating->count() >= $one_exercise) {
             $filtered = $nonRepeating;
-        } else if ($nonRepeating->count() < $choices && $top_p > 0) {
-            return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
+        } else if ($nonRepeating->count() < $one_exercise && $top_p > 0) {
+            return $this->pickRandomExercises($exercises, $top_p - 0.1);
         }
         $top_p = $this->prefs->topP;
 
         // Return a random selection from the best available candidates
-        $randomExercises = $filtered->random(min($choices, $filtered->count()));
+        $randomExercises = $filtered->random(min($one_exercise, $filtered->count()));
 
         // Choose unique exercieses from the entire week
         foreach ($randomExercises as $ex) {
             if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt >= self::MAX_ATTEMPT) {
                 $attempt++;
-                return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
+                return $this->pickRandomExercises($exercises, $top_p, $attempt);
             }
             $this->exerciceIdsToExclude[] = $ex->id;
         }
         $attempt = 0;
 
         if ($randomExercises->count() === 0 && $top_p > 0) {
-            return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
+            return $this->pickRandomExercises($exercises, $top_p - 0.1);
         }
         $top_p = $this->prefs->topP;
 
         // If there is no single isolation exercise then recreate
         if (!in_array(StartWithExercise::ISOLATION, $randomExercises->pluck('mechanic')->toArray()) && $attempt >= self::MAX_ATTEMPT) {
             $attempt++;
-            return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
+            return $this->pickRandomExercises($exercises, $top_p, $attempt);
         }
         $attempt = 0;
 
