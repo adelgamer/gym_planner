@@ -16,6 +16,7 @@ class DayWorkoutGeneratorService
     private Collection $plan;
     private array $numbering = [];
     private Collection $musclesData;
+    private const MAX_ATTEMPT = 25;
 
     /**
      * DayWorkoutGeneratorService constructor.
@@ -227,7 +228,7 @@ class DayWorkoutGeneratorService
         $top_p = $this->prefs->topP;
 
         // If there is no single isolation exercise then recreate
-        if (!in_array(StartWithExercise::ISOLATION, $randomExercises->pluck('mechanic')->toArray()) && $attempt >= 10) {
+        if (!in_array(StartWithExercise::ISOLATION, $randomExercises->pluck('mechanic')->toArray()) && $attempt >= self::MAX_ATTEMPT) {
             $attempt++;
             return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
         }
