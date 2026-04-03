@@ -219,12 +219,15 @@ class DayWorkoutGeneratorService
         // Return a random selection from the best available candidates
         $randomExercises = $filtered->random(min($choices, $filtered->count()));
 
+        // Choose unique exercieses from the entire week
         foreach ($randomExercises as $ex) {
-            if (in_array($ex->id, $this->exerciceIdsToExclude)) {
-                return $this->pickRandomExercises($exercises, $choices, $top_p);
+            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt >= self::MAX_ATTEMPT) {
+                $attempt++;
+                return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
             }
             $this->exerciceIdsToExclude[] = $ex->id;
         }
+        $attempt = 0;
 
         if ($randomExercises->count() === 0 && $top_p > 0) {
             return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
