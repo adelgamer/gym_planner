@@ -176,13 +176,81 @@ class DayWorkoutGeneratorService
     private function pickRandomExercises($exercises, int $choices, float $top_p, int $attempt = 0): Collection
     {
         // Check which parts of muscles (e.g. Upper Chest, Lower Abs) are already targeted
-        $submusclesHit = $this->plan->flatMap(function ($exercise) {
-            return $exercise->muscleSubdivisions->pluck('id');
-        })->unique();
-        // print_r($submusclesHit->toArray());
+        [$submusclesHit, $exerciseFamilyHit] = $this->getHitData();
 
         // Filter 1: Reliability & Preferences. Keep only exercises that meet the 'top_p' popularity threshold, 
         // equipment preferences, and the selected difficulty level.
+        $filtered = $this->filterBasedOnPrefs($exercises, $top_p);
+
+        // Filter 2: Variety. Try to pick exercises that don't hit the same sub-area twice and are not the same family.
+        $nonRepeating = $filtered->reject(function ($ex) use ($submusclesHit, $exerciseFamilyHit) {
+            $isSubMuscleHit = $ex->muscleSubdivisions->pluck('id')->intersect($submusclesHit)->isNotEmpty();
+            $isSameFamilyExHit = in_array($ex->exercise_family, $exerciseFamilyHit->toArray());
+            return $isSubMuscleHit || $isSameFamilyExHit;
+        });
+
+        // If we found enough 'unique' exercises, use them. 
+        // Otherwise, fall back to the basic filtered list to fulfill the count.
+        if ($nonRepeating->count() >= $choices) {
+            $filtered = $nonRepeating;
+        } else if ($nonRepeating->count() < $choices && $top_p > 0) {
+            return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
+        }
+        $top_p = $this->prefs->topP;
+
+        // Return a random selection from the best available candidates
+        $randomExercises = $filtered->random(min($choices, $filtered->count()));
+
+        // Choose unique exercieses from the entire week
+        foreach ($randomExercises as $ex) {
+            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt >= self::MAX_ATTEMPT) {
+                $attempt++;
+                return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
+            }
+            $this->exerciceIdsToExclude[] = $ex->id;
+        }
+        $attempt = 0;
+
+        if ($randomExercises->count() === 0 && $top_p > 0) {
+            return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
+        }
+        $top_p = $this->prefs->topP;
+
+        // If there is no single isolation exercise then recreate
+        if (!in_array(StartWithExercise::ISOLATION, $randomExercises->pluck('mechanic')->toArray()) && $attempt >= self::MAX_ATTEMPT) {
+            $attempt++;
+            return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
+        }
+        $attempt = 0;
+
+        // Order compound and isolation
+        if ($this->prefs->startWithExercise !== StartWithExercise::ALL) {
+            if ($this->prefs->startWithExercise === StartWithExercise::COMPOUND) {
+                $randomExercises = $randomExercises->sortBy('mechanic');
+            } else {
+                $randomExercises = $randomExercises->sortByDesc('mechanic');
+            }
+        }
+
+
+        return $randomExercises;
+    }
+
+    private function getHitData(): array
+    {
+        // Check which parts of muscles (e.g. Upper Chest, Lower Abs) are already targeted
+        $submusclesHit = $this->plan->flatMap(function ($exercise) {
+            return $exercise->muscleSubdivisions->pluck('id');
+        })->unique();
+        $exerciseFamilyHit = $this->plan->flatMap(function ($exercise) {
+            return $exercise->exercise_family;
+        })->unique();
+
+        return [$submusclesHit, $exerciseFamilyHit];
+    }
+
+    private function filterBasedOnPrefs($exercises, $top_p): Collection
+    {
         $filtered = $exercises->reject(function ($ex) use ($top_p) {
             $lowPopularity = ($ex->popularity / 10) < $top_p; // Skip if exercise popularity is below threshold
 
@@ -206,55 +274,6 @@ class DayWorkoutGeneratorService
             return $lowPopularity || $disallowBasedEquipment || $disallowBasedDifficulty || $disallowBasedCategory;
         });
 
-        // Filter 2: Variety. Try to pick exercises that don't hit the same sub-area twice.
-        $nonRepeating = $filtered->reject(function ($ex) use ($submusclesHit) {
-            return $ex->muscleSubdivisions->pluck('id')->intersect($submusclesHit)->isNotEmpty();
-        });
-
-        // If we found enough 'unique' exercises, use them. 
-        // Otherwise, fall back to the basic filtered list to fulfill the count.
-        if ($nonRepeating->count() >= $choices) {
-            $filtered = $nonRepeating;
-        } else if ($nonRepeating->count() < $choices && $top_p > 0) {
-            return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
-        }
-        $top_p = $this->prefs->topP;
-
-        // Return a random selection from the best available candidates
-        $randomExercises = $filtered->random(min($choices, $filtered->count()));
-
-        // Choose unique exercieses from the entire week
-        foreach ($randomExercises as $ex) {
-            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt < self::MAX_ATTEMPT) {
-                $attempt++;
-                return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
-            }
-            $this->exerciceIdsToExclude[] = $ex->id;
-        }
-        $attempt = 0;
-
-        if ($randomExercises->count() === 0 && $top_p > 0) {
-            return $this->pickRandomExercises($exercises, $choices, $top_p - 0.1);
-        }
-        $top_p = $this->prefs->topP;
-
-        // If there is no single isolation exercise then recreate
-        if (!in_array(StartWithExercise::ISOLATION, $randomExercises->pluck('mechanic')->toArray()) && $attempt < self::MAX_ATTEMPT) {
-            $attempt++;
-            return $this->pickRandomExercises($exercises, $choices, $top_p, $attempt);
-        }
-        $attempt = 0;
-
-        // Order compound and isolation
-        if ($this->prefs->startWithExercise !== StartWithExercise::ALL) {
-            if ($this->prefs->startWithExercise === StartWithExercise::COMPOUND) {
-                $randomExercises = $randomExercises->sortBy('mechanic');
-            } else {
-                $randomExercises = $randomExercises->sortByDesc('mechanic');
-            }
-        }
-
-
-        return $randomExercises;
+        return $filtered;
     }
 }
