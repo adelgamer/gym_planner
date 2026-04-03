@@ -199,45 +199,48 @@ class DayWorkoutGeneratorService
         if ($nonRepeating->count() >= $one_exercise) {
             $filtered = $nonRepeating;
         } else if ($nonRepeating->count() < $one_exercise && $top_p > 0) {
-            return $this->pickRandomExercises($exercises, $top_p - 0.1);
+            return $this->pickRandomExercises($exercises, $top_p - 0.1, $attempt);
         }
-        $top_p = $this->prefs->topP;
 
         // Return a random selection from the best available candidates
         $randomExercises = $filtered->random(min($one_exercise, $filtered->count()));
 
         // Choose unique exercieses from the entire week
         foreach ($randomExercises as $ex) {
-            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt >= self::MAX_ATTEMPT) {
+            if (in_array($ex->id, $this->exerciceIdsToExclude) && $attempt > self::MAX_ATTEMPT) {
                 $attempt++;
                 return $this->pickRandomExercises($exercises, $top_p, $attempt);
             }
             $this->exerciceIdsToExclude[] = $ex->id;
         }
-        $attempt = 0;
-
         if ($randomExercises->count() === 0 && $top_p > 0) {
-            return $this->pickRandomExercises($exercises, $top_p - 0.1);
+            return $this->pickRandomExercises($exercises, $top_p - 0.1, $attempt);
         }
-        $top_p = $this->prefs->topP;
 
         // If there is no single isolation exercise then recreate
-        $targetMuslce = $exercises->first()->muscles()->wherePivot('type', 'primary')->first();
+        $targetMuscle = $exercises->first()?->muscles()?->wherePivot('type', 'primary')->first();
+        if (!$targetMuscle) return $randomExercises;
+
         $exercisesTypeMovementForTargetMuscle = $this->plan
-            ->reject(
-                fn($ex) =>
-                $ex->muscles()
-                    ->wherePivot('type', 'primary')
-                    ->first()
-                    ->id !== $targetMuslce->id
-            )
+            ->reject(function($ex) use ($targetMuscle) {
+                $primaryMuscle = $ex->muscles->where('pivot.type', 'primary')->first();
+                return !$primaryMuscle || $primaryMuscle->id !== $targetMuscle->id;
+            })
             ->pluck('mechanic')
+            ->map(fn($m) => is_object($m) ? $m->value : (string)$m)
             ->toArray();
-        if (!in_array(StartWithExercise::ISOLATION, $exercisesTypeMovementForTargetMuscle) && $attempt >= self::MAX_ATTEMPT) {
+
+        // Include the current pick's mechanic
+        $currentMechanic = $randomExercises->first()->mechanic;
+        $exercisesTypeMovementForTargetMuscle[] = is_object($currentMechanic) ? $currentMechanic->value : (string)$currentMechanic;
+        
+        $totalExpected = $this->numbering[$targetMuscle->id]['exercies_number'] ?? 0;
+        $isLastPickForMuscle = count($exercisesTypeMovementForTargetMuscle) >= $totalExpected;
+
+        if ($isLastPickForMuscle && !in_array(StartWithExercise::ISOLATION->value, $exercisesTypeMovementForTargetMuscle) && $attempt < self::MAX_ATTEMPT) {
             $attempt++;
             return $this->pickRandomExercises($exercises, $top_p, $attempt);
         }
-        $attempt = 0;
 
         return $randomExercises;
     }
