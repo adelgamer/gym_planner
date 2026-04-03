@@ -17,7 +17,7 @@ enum EquipmentSelection: string
         return match ($this) {
             self::BODY_WEIGHT => [1],
             self::DUMBBELLS => [6],
-            self::GYM => range(2, 12),
+            self::GYM => [2, 6, 7, 8, 12],
             self::ALL => range(1, 12),
         };
     }
